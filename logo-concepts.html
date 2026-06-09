@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verdant Curation — Logo Concepts</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #f7f5f0; color: #2d2d2d; padding: 48px 24px;
+  }
+  .container { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; font-weight: 600; margin-bottom: 8px; color: #2d2d2d; }
+  .sub { color: #8a8070; font-size: 0.9rem; margin-bottom: 48px; }
+
+  .logo-card {
+    background: #fff; border-radius: 12px; border: 1px solid #e0dad0;
+    padding: 40px; margin-bottom: 32px;
+    display: flex; align-items: center; gap: 40px;
+    transition: box-shadow 0.2s;
+  }
+  .logo-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+  .logo-card .preview { flex-shrink: 0; }
+  .logo-card .info { flex: 1; }
+  .logo-card .name { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: #5c7f5a; font-weight: 600; margin-bottom: 4px; }
+  .logo-card .desc { font-size: 0.85rem; color: #8a8070; line-height: 1.5; }
+
+  /* Dark bg variant */
+  .logo-card.dark { background: #2d2d2d; }
+  .logo-card.dark .desc { color: #b5ada0; }
+
+  .logo-row { display: flex; gap: 24px; align-items: center; }
+  .variants { display: flex; gap: 24px; margin-top: 16px; }
+  .variant { text-align: center; }
+  .variant-label { font-size: 0.7rem; color: #8a8070; margin-top: 6px; letter-spacing: 0.5px; }
+
+  @media (max-width: 640px) {
+    .logo-card { flex-direction: column; text-align: center; padding: 28px; gap: 20px; }
+    .logo-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Verdant Curation — Logo Concepts</h1>
+  <p class="sub">5 design directions for a plant-led editorial brand</p>
+
+  <!-- Option 1 -->
+  <div class="logo-card">
+    <div class="preview">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <!-- Circle bg -->
+        <circle cx="70" cy="70" r="66" fill="#f0ede6" stroke="#5c7f5a" stroke-width="1.5"/>
+        <!-- Leaf shape -->
+        <path d="M70 38 C52 48, 42 62, 40 78 C38 94, 48 104, 58 100 C68 96, 72 88, 80 82 C88 76, 98 70, 102 60 C106 50, 98 42, 90 44 C82 46, 78 52, 70 38Z"
+              fill="#5c7f5a" opacity="0.9"/>
+        <!-- Vein line -->
+        <path d="M70 38 L70 100" stroke="#8baa86" stroke-width="1.2" fill="none" opacity="0.6"/>
+        <!-- Small vein -->
+        <path d="M70 50 Q78 46, 85 48" stroke="#8baa86" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <path d="M70 62 Q60 58, 52 60" stroke="#8baa86" stroke-width="0.8" fill="none" opacity="0.4"/>
+        <path d="M70 74 Q78 70, 86 72" stroke="#8baa86" stroke-width="0.8" fill="none" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="info">
+      <div class="name">Option 1 — Leaf Mark</div>
+      <div class="desc">圆形徽章 + 手绘风格叶片，配精细叶脉线条。经典植物标识感，适合作为favicon和小尺寸展现。<br>
+      <strong>色系：</strong>鼠尾草绿 + 暖灰底</div>
+    </div>
+  </div>
+
+  <!-- Option 2 -->
+  <div class="logo-card">
+    <div class="preview">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <!-- VC Monogram -->
+        <text x="44" y="96" font-family="'Times New Roman', Georgia, serif" font-size="72" font-weight="700" fill="#5c7f5a" opacity="0.12">VC</text>
+        <!-- V letter -->
+        <polygon points="46,44 56,90 66,90 70,66 74,90 84,90 94,44 84,44 78,74 70,52 62,74 56,44" fill="#2d2d2d"/>
+        <!-- Small fern accent -->
+        <path d="M96 50 Q106 46, 110 38" stroke="#b8946e" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M96 54 Q108 56, 112 46" stroke="#b8946e" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M96 58 Q106 62, 110 54" stroke="#b8946e" stroke-width="1.2" fill="none" stroke-linecap="round" opacity="0.4"/>
+      </svg>
+    </div>
+    <div class="info">
+      <div class="name">Option 2 — VC Monogram</div>
+      <div class="desc">字母组合标识，"V"以负形融入"C"的弧线中。右上角一枝纤细的蕨叶点缀，陶土色线条。<br>
+      <strong>风格：</strong>极简时尚，偏杂志/编辑感</div>
+    </div>
+  </div>
+
+  <!-- Option 3 -->
+  <div class="logo-card">
+    <div class="preview" style="text-align:center;">
+      <!-- Wordmark only -->
+      <svg width="320" height="80" viewBox="0 0 320 80" style="display:block;">
+        <!-- Leaf dot above -->
+        <path d="M38 26 Q44 18, 52 22 Q56 26, 50 30 Q44 32, 38 26Z" fill="#5c7f5a"/>
+        <text x="68" y="48" font-family="'Georgia', 'Times New Roman', serif" font-size="32" font-weight="700" fill="#2d2d2d" letter-spacing="-0.5">Verdant</text>
+        <text x="68" y="72" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="14" font-weight="400" fill="#8a8070" letter-spacing="4">CURATION</text>
+        <!-- Line separator -->
+        <line x1="240" y1="40" x2="260" y2="40" stroke="#b8946e" stroke-width="1.5"/>
+      </svg>
+      <div class="variants">
+        <div class="variant">
+          <svg width="120" height="30" viewBox="0 0 120 30" style="display:block;">
+            <text x="0" y="20" font-family="'Georgia', serif" font-size="14" font-weight="700" fill="#2d2d2d">Verdant</text>
+            <text x="0" y="30" font-family="sans-serif" font-size="6" font-weight="400" fill="#8a8070" letter-spacing="2">CURATION</text>
+          </svg>
+          <div class="variant-label">Horizontal</div>
+        </div>
+        <div class="variant">
+          <svg width="50" height="50" viewBox="0 0 50 50" style="display:block;">
+            <path d="M12 10 Q18 4, 24 8 Q27 11, 22 14 Q17 16, 12 10Z" fill="#5c7f5a"/>
+            <text x="32" y="28" font-family="'Georgia', serif" font-size="22" font-weight="700" fill="#2d2d2d">V</text>
+          </svg>
+          <div class="variant-label">Icon</div>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="name">Option 3 — Wordmark</div>
+      <div class="desc">纯文字标识，上排衬线体 "Verdant" + 下排无衬线大写 "CURATION"，左上一片小叶点缀。<br>
+      <strong>风格：</strong>优雅编辑风，像杂志logo（参考 Kinfolk / Cereal）</div>
+    </div>
+  </div>
+
+  <!-- Option 4 -->
+  <div class="logo-card">
+    <div class="preview">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <!-- Abstract shape: two leaves forming V -->
+        <!-- Left leaf -->
+        <path d="M70 70 Q50 50, 40 36 Q38 32, 44 30 Q52 30, 62 44 Q70 56, 70 70Z"
+              fill="#5c7f5a" opacity="0.85"/>
+        <!-- Right leaf -->
+        <path d="M70 70 Q90 50, 100 36 Q102 32, 96 30 Q88 30, 78 44 Q70 56, 70 70Z"
+              fill="#8baa86" opacity="0.75"/>
+        <!-- Stem -->
+        <line x1="70" y1="70" x2="70" y2="106" stroke="#5c7f5a" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Small circle base -->
+        <circle cx="70" cy="108" r="3" fill="#b8946e"/>
+        <!-- Subtle bottom arc -->
+        <path d="M48 56 Q70 46, 92 56" stroke="#dce8d5" stroke-width="1" fill="none"/>
+      </svg>
+    </div>
+    <div class="info">
+      <div class="name">Option 4 — Abstract Sprout</div>
+      <div class="desc">两片叶子构成抽象的 "V" 字形（Verdant的V），一根纤细茎杆延伸到根部陶土圆点。极简符号化。<br>
+      <strong>风格：</strong>抽象现代，适合作为品牌资产广泛应用</div>
+    </div>
+  </div>
+
+  <!-- Option 5 -->
+  <div class="logo-card">
+    <div class="preview" style="text-align:center;">
+      <svg width="300" height="100" viewBox="0 0 300 100" style="display:block;">
+        <!-- Horizontal fern bar -->
+        <g transform="translate(0, 8)">
+          <line x1="0" y1="30" x2="80" y2="30" stroke="#dce8d5" stroke-width="1"/>
+          <path d="M12 30 Q16 20, 22 22 Q26 24, 22 30" fill="#5c7f5a" opacity="0.5"/>
+          <path d="M24 30 Q28 18, 36 20 Q40 22, 36 30" fill="#5c7f5a" opacity="0.6"/>
+          <path d="M36 30 Q40 16, 48 18 Q52 20, 48 30" fill="#5c7f5a" opacity="0.7"/>
+          <path d="M48 30 Q52 14, 60 16 Q64 18, 60 30" fill="#5c7f5a" opacity="0.8"/>
+          <path d="M60 30 Q64 12, 72 14 Q76 16, 72 30" fill="#5c7f5a" opacity="0.9"/>
+        </g>
+        <!-- Title text -->
+        <text x="100" y="48" font-family="'Inter', sans-serif" font-size="22" font-weight="600" fill="#2d2d2d" letter-spacing="-0.3">Verdant</text>
+        <text x="100" y="72" font-family="'Inter', sans-serif" font-size="14" font-weight="400" fill="#8a8070" letter-spacing="2.5">CURATION</text>
+        <!-- Thin vertical divider -->
+        <line x1="88" y1="30" x2="88" y2="78" stroke="#e0dad0" stroke-width="1"/>
+        <!-- Small leaf dot after -->
+        <circle cx="280" cy="40" r="5" fill="#5c7f5a" opacity="0.3"/>
+        <circle cx="280" cy="40" r="2.5" fill="#5c7f5a" opacity="0.6"/>
+      </svg>
+      <div class="variants">
+        <div class="variant">
+          <svg width="140" height="140" viewBox="0 0 140 140" style="display:block;">
+            <!-- Stacked variant -->
+            <g transform="translate(22, 15)">
+              <line x1="48" y1="18" x2="48" y2="12" stroke="#5c7f5a" stroke-width="2" stroke-linecap="round"/>
+              <path d="M48 18 L38 26 L42 30 L48 22 L54 30 L58 26Z" fill="#5c7f5a"/>
+            </g>
+            <text x="40" y="70" font-family="'Inter', sans-serif" font-size="22" font-weight="600" fill="#2d2d2d">Verdant</text>
+            <text x="28" y="96" font-family="'Inter', sans-serif" font-size="12" font-weight="400" fill="#8a8070" letter-spacing="3">CURATION</text>
+          </svg>
+          <div class="variant-label">Stacked</div>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="name">Option 5 — Fern Bar</div>
+      <div class="desc">左侧一条渐次生长的蕨叶装饰条（5片叶子从淡到浓），右侧纯净文字。像书脊或报头设计。<br>
+      <strong>风格：</strong>文学/出版感，类似植物学刊物的视觉语言</div>
+    </div>
+  </div>
+
+  <!-- Preview on dark bg -->
+  <h2 style="margin-top:48px; font-size:1.1rem; color:#2d2d2d;">深色背景效果</h2>
+  <p class="sub" style="margin-bottom:24px;">所有logo在深色背景上的展现</p>
+
+  <div class="logo-card dark">
+    <div class="logo-row">
+      <svg width="64" height="64" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="66" fill="#3a3a3a" stroke="#5c7f5a" stroke-width="1.5"/>
+        <path d="M70 38 C52 48, 42 62, 40 78 C38 94, 48 104, 58 100 C68 96, 72 88, 80 82 C88 76, 98 70, 102 60 C106 50, 98 42, 90 44 C82 46, 78 52, 70 38Z" fill="#8baa86"/>
+        <path d="M70 38 L70 100" stroke="#5c7f5a" stroke-width="1.2" fill="none" opacity="0.6"/>
+      </svg>
+
+      <svg width="120" height="40" viewBox="0 0 300 100" style="display:block;">
+        <text x="0" y="48" font-family="'Georgia', serif" font-size="32" font-weight="700" fill="#ffffff">Verdant</text>
+        <text x="0" y="72" font-family="sans-serif" font-size="14" font-weight="400" fill="#b5ada0" letter-spacing="4">CURATION</text>
+      </svg>
+
+      <svg width="80" height="40" viewBox="0 0 140 140">
+        <text x="28" y="56" font-family="'Times New Roman', serif" font-size="48" font-weight="700" fill="#5c7f5a" opacity="0.15">VC</text>
+        <polygon points="30,24 38,60 46,60 48,44 50,60 58,60 66,24 58,24 54,48 48,34 42,48 38,24" fill="#ffffff"/>
+        <path d="M70 30 Q78 26, 82 20" stroke="#b8946e" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      </svg>
+
+      <svg width="80" height="40" viewBox="0 0 140 140">
+        <path d="M70 70 Q50 50, 40 36 Q38 32, 44 30 Q52 30, 62 44 Q70 56, 70 70Z" fill="#8baa86"/>
+        <path d="M70 70 Q90 50, 100 36 Q102 32, 96 30 Q88 30, 78 44 Q70 56, 70 70Z" fill="#5c7f5a"/>
+        <line x1="70" y1="70" x2="70" y2="106" stroke="#8baa86" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="70" cy="108" r="3" fill="#b8946e"/>
+      </svg>
+    </div>
+  </div>
+
+  <p class="sub" style="margin-top:32px; text-align:center; border-top:1px solid #e0dad0; padding-top:24px;">
+    All designs by Hermes Agent · Verdant Curation © 2026
+  </p>
+</div>
+</body>
+</html>
