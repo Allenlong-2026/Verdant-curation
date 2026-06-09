@@ -11,15 +11,31 @@
     <header class="site-header">
         <div class="container">
             <a href="/" class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="140" height="44" style="vertical-align:middle;">
-                    <path d="M 22,40 Q 21,36 22,32 Q 23,28 22,24 Q 21,22 22,20" stroke="#5c7f5a" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                    <path d="M 22,36 Q 29,32 32,35 Q 33,37 30,38 Q 28,39 22,37" stroke="#5c7f5a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                    <path d="M 22,33 Q 16,30 14,33 Q 13,35 15,36 Q 18,37 22,35" stroke="#5c7f5a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                    <path d="M 22,29 Q 29,25 32,28 Q 33,30 30,31 Q 28,32 22,30" stroke="#5c7f5a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                    <path d="M 22,22 Q 26,19 28,21 Q 29,23 27,24 Q 25,25 22,23" stroke="#5c7f5a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                    <path d="M 22,20 Q 24,17 22,16 Q 20,17 22,20" stroke="#5c7f5a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-                    <text x="44" y="32" font-family="'Inter', sans-serif" font-weight="700" font-size="18" fill="#2d2d2d" letter-spacing="-0.3">Verdant</text>
-                    <text x="44" y="46" font-family="'Inter', sans-serif" font-weight="400" font-size="9" fill="#8a8070" letter-spacing="3">CURATION</text>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="50" height="50" style="color:#5c7f5a;vertical-align:middle;">
+                    <defs>
+                        <style>
+                            .l-stem { stroke: currentColor; stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+                            .l-leaf { stroke: currentColor; stroke-width: 1.4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+                        </style>
+                    </defs>
+                    <path id="l-top" d="M 72,200 A 128,128 0 0,1 328,200" fill="none"/>
+                    <text font-family="'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="600" font-size="18" fill="currentColor" letter-spacing="4.5">
+                        <textPath href="#l-top" startOffset="50%" text-anchor="middle">VERDANT CURATION</textPath>
+                    </text>
+                    <path id="l-bot" d="M 328,200 A 128,128 0 0,1 72,200" fill="none"/>
+                    <text font-family="'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-weight="500" font-size="13" fill="currentColor" letter-spacing="3.5">
+                        <textPath href="#l-bot" startOffset="50%" text-anchor="middle">CURATED SPACES, NATURALLY.</textPath>
+                    </text>
+                    <circle cx="72" cy="200" r="2.5" fill="currentColor"/>
+                    <circle cx="328" cy="200" r="2.5" fill="currentColor"/>
+                    <path class="l-stem" d="M 200,252 Q 198,230 200,210 Q 202,190 200,170 Q 198,155 200,140"/>
+                    <path class="l-leaf" d="M 200,230 Q 218,218 230,225 Q 234,228 228,236 Q 218,240 200,235"/>
+                    <path class="l-leaf" d="M 200,215 Q 182,205 170,210 Q 166,213 172,220 Q 182,224 200,218"/>
+                    <path class="l-leaf" d="M 200,198 Q 222,184 235,192 Q 238,196 232,204 Q 220,208 200,202"/>
+                    <path class="l-leaf" d="M 200,183 Q 178,170 165,178 Q 162,182 168,188 Q 178,192 200,186"/>
+                    <path class="l-leaf" d="M 200,166 Q 216,156 225,162 Q 228,165 222,170 Q 214,174 200,169"/>
+                    <path class="l-leaf" d="M 200,154 Q 184,145 176,150 Q 173,153 178,158 Q 186,161 200,156"/>
+                    <path class="l-leaf" d="M 200,140 Q 208,130 200,125 Q 192,130 200,140"/>
                 </svg>
             </a>
             <nav class="main-nav">
