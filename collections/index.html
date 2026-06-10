@@ -1,207 +1,206 @@
-     1|<!DOCTYPE html>
-     2|<html lang="en">
-     3|<head>
-     4|    <meta charset="UTF-8">
-     5|    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|    <title>Collections — Curated Plant-led Guides | Verdant Curation</title>
-     7|    <meta name="description" content="Explore curated collections of plant-led design guides and front porch inspiration. Browse by theme: porch & entryway, night gardens, water-wise living, and kitchen gardens.">
-     8|    <meta property="og:title" content="Collections — Verdant Curation">
-     9|    <meta property="og:description" content="Curated plant-led design guides organized by theme and style.">
-    10|    <meta property="og:url" content="https://verdantcuration.com/collections/">
-    11|    <meta property="og:type" content="website">
-    12|    <meta name="twitter:card" content="summary_large_image">
-    13|    <link rel="canonical" href="https://verdantcuration.com/collections/">
-    14|    <link rel="stylesheet" href="/assets/css/style.css">
-    15|    <style>
-    16|        .collections-hero {
-    17|            background: linear-gradient(135deg, #4d6b4a 0%, #6b8f69 50%, #8baa86 100%);
-    18|            color: #fff; padding: 60px 0 48px; text-align: center;
-    19|        }
-    20|        .collections-hero h1 {
-    21|            font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px;
-    22|        }
-    23|        .collections-hero p {
-    24|            max-width: 520px; margin: 0 auto; font-size: 1rem; opacity: 0.85; line-height: 1.6;
-    25|        }
-    26|        .intro-section {
-    27|            max-width: 680px; margin: 40px auto; padding: 0 24px; text-align: center;
-    28|        }
-    29|        .intro-section h2 { font-size: 1rem; color: #8a8070; font-weight: 500; margin-bottom: 6px; }
-    30|        .intro-section p { font-size: 0.9rem; color: #8a8070; line-height: 1.7; }
-    31|        main.container { padding: 0 24px 48px; }
-    32|        .collection-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-top: 32px; }
-    33|        .collection-card {
-    34|            background: #fff; border-radius: 10px; overflow: hidden;
-    35|            box-shadow: 0 2px 16px rgba(0,0,0,0.05); border: 1px solid #e0dad0;
-    36|            transition: transform 0.2s, box-shadow 0.2s;
-    37|        }
-    38|        .collection-card:hover {
-    39|            transform: translateY(-3px);
-    40|            box-shadow: 0 6px 24px rgba(0,0,0,0.07);
-    41|            border-color: #dce8d5;
-    42|        }
-    43|        .collection-card__image {
-    44|            width: 100%; height: 220px; overflow: hidden;
-    45|        }
-    46|        .collection-card__image img {
-    47|            width: 100%; height: 100%; object-fit: cover;
-    48|            transition: transform 0.4s ease;
-    49|        }
-    50|        .collection-card:hover .collection-card__image img { transform: scale(1.05); }
-    51|        .collection-card__content { padding: 24px; }
-    52|        .collection-card__tag {
-    53|            display: inline-block; color: #b8946e; font-size: 0.72rem;
-    54|            font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px;
-    55|        }
-    56|        .collection-card__content h3 { font-size: 1.15rem; margin-bottom: 8px; line-height: 1.4; }
-    57|        .collection-card__content h3 a { color: #2d2d2d; text-decoration: none; transition: color 0.2s; }
-    58|        .collection-card__content h3 a:hover { color: #5c7f5a; }
-    59|        .collection-card__desc { font-size: 0.85rem; color: #8a8070; line-height: 1.6; margin-bottom: 14px; }
-    60|        .collection-card__meta { font-size: 0.78rem; color: #5c7f5a; margin-bottom: 10px; font-weight: 500; }
-    61|        .collection-card__articles { list-style: none; padding: 0; }
-    62|        .collection-card__articles li { margin-bottom: 5px; }
-    63|        .collection-card__articles a {
-    64|            font-size: 0.82rem; color: #5c7f5a; text-decoration: none; line-height: 1.5;
-    65|            display: flex; align-items: center; gap: 6px;
-    66|        }
-    67|        .collection-card__articles a::before { content: "→"; color: #b8946e; font-weight: 600; }
-    68|        .collection-card__articles a:hover { color: #3d5c3b; }
-    69|        .collection-card__coming-soon { font-size: 0.78rem; color: #b8946e; font-style: italic; margin: 3px 0; }
-    70|        @media (max-width: 640px) {
-    71|            .collections-hero { padding: 40px 0 32px; }
-    72|            .collections-hero h1 { font-size: 1.6rem; }
-    73|            .collection-grid { grid-template-columns: 1fr; }
-    74|        }
-    75|        .breadcrumb {
-    76|            max-width: 960px; margin: 0 auto; padding: 14px 24px 0;
-    77|            font-size: 0.8rem; color: #8a8070;
-    78|        }
-    79|        .breadcrumb a { color: #5c7f5a; text-decoration: none; }
-    80|        .breadcrumb a:hover { text-decoration: underline; }
-    81|        .breadcrumb span { color: #8a8070; }
-    82|    </style>
-    83|</head>
-    84|<body>
-    85|
-    86|<header class="site-header">
-    87|    <div class="container">
-    88|        <a href="/" class="logo"><img src="/assets/images/verdant-curation-logo.png" width="80" height="80" alt="Verdant Curation" style="vertical-align:middle;"></a>
-   116|        <nav class="main-nav">
-   117|            <a href="/">Home</a>
-   118|            <a href="/articles/">Articles</a>
-   119|            <a href="/collections/" class="active">Collections</a>
-   120|<a href="/about/">About</a>
-   121|                <a href="/contact/">Contact</a>
-   122|                <a href="/privacy/">Privacy</a>
-   123|                <a href="/affiliate-disclosure/">Disclosure</a>
-   124|            </nav>
-   125|    </div>
-   126|</header>
-   127|
-   128|<div class="breadcrumb">
-   129|    <a href="/">Home</a> / <span>Collections</span>
-   130|</div>
-   131|
-   132|<section class="collections-hero">
-   133|    <div class="container">
-   134|        <h1>Collections</h1>
-   135|        <p>Curated guides organized by theme — find the perfect plant-led look for every corner of your home.</p>
-   136|    </div>
-   137|</section>
-   138|
-   139|<div class="intro-section">
-   140|    <h2>Browse by theme</h2>
-   141|    <p>Each collection brings together related design guides, planting strategies, and care tips — so you can explore a complete look from concept to execution.</p>
-   142|</div>
-   143|
-   144|<main class="container">
-   145|    <div class="collection-grid">
-   146|
-   147|        <!-- Collection 1: Porch & Entryway -->
-   148|        <div class="collection-card">
-   149|            <div class="collection-card__image">
-   150|                <img src="/assets/images/collections/porch.jpg" alt="Lush front porch entrance with summer planters and greenery" loading="lazy">
-   151|            </div>
-   152|            <div class="collection-card__content">
-   153|                <span class="collection-card__tag">Seasonal · Planter Design</span>
-   154|                <h3><a href="/articles/">Porch &amp; Entryway Gardens</a></h3>
-   155|                <p class="collection-card__desc">Front porch planter ideas, design guides, and seasonal inspiration for transforming your entryway into a plant-led welcome.</p>
-   156|                <p class="collection-card__meta">7 guides · Updated June 2026</p>
-   157|                <ul class="collection-card__articles">
-   158|                    <li><a href="/articles/summer-porch-23-ideas-2026/">23 Summer Front Porch Planter Ideas</a></li>
-   159|                    <li><a href="/articles/monochromatic-green-foliage-guide/">Monochromatic Green Foliage Planter</a></li>
-   160|                    <li><a href="/articles/scented-herb-corner-guide/">Scented Herb Corner Planter</a></li>
-   161|                    <li><a href="/articles/succulent-cacti-bowl-guide/">Succulent &amp; Cacti Bowl</a></li>
-   162|                    <li><a href="/articles/hanging-basket-wall-guide/">Hanging Basket Wall Garden</a></li>
-   163|                    <li><a href="/articles/cottage-garden-overflow-guide/">Cottage Garden Overflow Front Porch Planter</a></li>
-   164|                    <li><a href="/articles/single-statement-plant-guide/">Single Statement Plant Front Porch</a></li>
-   165|                    <li><a href="/articles/tropical-giant-leaves-guide/">Tropical Giant Leaves Planter</a></li>
-   166|                </ul>
-   167|            </div>
-   168|        </div>
-   169|
-   170|        <!-- Collection 2: Night Gardens & Fragrance -->
-   171|        <div class="collection-card">
-   172|            <div class="collection-card__image">
-   173|                <img src="/assets/images/collections/night-garden.jpg" alt="Moonlit garden with white flowers glowing at night" loading="lazy">
-   174|            </div>
-   175|            <div class="collection-card__content">
-   176|                <span class="collection-card__tag">Night Gardens · Fragrance</span>
-   177|                <h3><a href="/collections/">Night Gardens &amp; Fragrance</a></h3>
-   178|                <p class="collection-card__desc">Moon gardens, night-blooming plants, and scented flowers that transform your space after dark — designed for evening enjoyment.</p>
-   179|                <p class="collection-card__meta">Coming summer 2026</p>
-   180|                <ul class="collection-card__articles">
-   181|                    <li class="collection-card__coming-soon">White Moon Garden (in production)</li>
-   182|                    <li class="collection-card__coming-soon">Fragrant Jasmine & Night Bloomers (in production)</li>
-   183|                </ul>
-   184|            </div>
-   185|        </div>
-   186|
-   187|        <!-- Collection 3: Water-Wise & Low-Maintenance -->
-   188|        <div class="collection-card">
-   189|            <div class="collection-card__image">
-   190|                <img src="/assets/images/collections/water-wise.jpg" alt="Succulent and cacti arrangement in terracotta bowl" loading="lazy">
-   191|            </div>
-   192|            <div class="collection-card__content">
-   193|                <span class="collection-card__tag">Water-Wise · Low Maintenance</span>
-   194|                <h3><a href="/collections/">Water-Wise &amp; Low Maintenance</a></h3>
-   195|                <p class="collection-card__desc">Succulents, cacti, drought-tolerant natives, and plants that thrive on minimal care — beautiful without the daily watering.</p>
-   196|                <p class="collection-card__meta">1 guide so far · More coming</p>
-   197|                <ul class="collection-card__articles">
-   198|                    <li><a href="/articles/succulent-cacti-bowl-guide/">Succulent &amp; Cacti Bowl</a></li>
-   199|                    <li class="collection-card__coming-soon">Drought-Tolerant Native Planter (in production)</li>
-   200|                </ul>
-   201|            </div>
-   202|        </div>
-   203|
-   204|        <!-- Collection 4: Kitchen & Cutting Garden -->
-   205|        <div class="collection-card">
-   206|            <div class="collection-card__image">
-   207|                <img src="/assets/images/collections/kitchen-garden.jpg" alt="Fresh herbs in ceramic pots on a kitchen windowsill" loading="lazy">
-   208|            </div>
-   209|            <div class="collection-card__content">
-   210|                <span class="collection-card__tag">Edible · Cut Flowers</span>
-   211|                <h3><a href="/collections/">Kitchen &amp; Cutting Garden</a></h3>
-   212|                <p class="collection-card__desc">Herbs, edible flowers, and cut-flower gardens that bring the farm-to-table experience to your doorstep.</p>
-   213|                <p class="collection-card__meta">1 guide so far · More coming</p>
-   214|                <ul class="collection-card__articles">
-   215|                    <li><a href="/articles/scented-herb-corner-guide/">Scented Herb Corner Planter</a></li>
-   216|                    <li class="collection-card__coming-soon">Edible Companion Planting (in production)</li>
-   217|                    <li class="collection-card__coming-soon">Cut-Flower Garden Pot (in production)</li>
-   218|                </ul>
-   219|            </div>
-   220|        </div>
-   221|
-   222|    </div>
-   223|</main>
-   224|
-   225|<footer class="site-footer">
-   226|    <div class="container">
-   227|        <p>&copy; 2026 Verdant Curation. All rights reserved. &middot; <a href="/privacy/" style="color:#8baa86;text-decoration:none;">Privacy</a> &middot; <a href="/affiliate-disclosure/" style="color:#8baa86;text-decoration:none;">Disclosure</a></p>
-   228|        <p class="footer-tagline">Plant-led living, curated.</p>
-   229|    </div>
-   230|</footer>
-   231|
-   232|</body>
-   233|</html>
-   234|
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections — Curated Plant-led Guides | Verdant Curation</title>
+    <meta name="description" content="Explore curated collections of plant-led design guides and front porch inspiration. Browse by theme: porch & entryway, night gardens, water-wise living, and kitchen gardens.">
+    <meta property="og:title" content="Collections — Verdant Curation">
+    <meta property="og:description" content="Curated plant-led design guides organized by theme and style.">
+    <meta property="og:url" content="https://verdantcuration.com/collections/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://verdantcuration.com/collections/">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+        .collections-hero {
+            background: linear-gradient(135deg, #4d6b4a 0%, #6b8f69 50%, #8baa86 100%);
+            color: #fff; padding: 60px 0 48px; text-align: center;
+        }
+        .collections-hero h1 {
+            font-size: 2.2rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px;
+        }
+        .collections-hero p {
+            max-width: 520px; margin: 0 auto; font-size: 1rem; opacity: 0.85; line-height: 1.6;
+        }
+        .intro-section {
+            max-width: 680px; margin: 40px auto; padding: 0 24px; text-align: center;
+        }
+        .intro-section h2 { font-size: 1rem; color: #8a8070; font-weight: 500; margin-bottom: 6px; }
+        .intro-section p { font-size: 0.9rem; color: #8a8070; line-height: 1.7; }
+        main.container { padding: 0 24px 48px; }
+        .collection-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-top: 32px; }
+        .collection-card {
+            background: #fff; border-radius: 10px; overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.05); border: 1px solid #e0dad0;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .collection-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+            border-color: #dce8d5;
+        }
+        .collection-card__image {
+            width: 100%; height: 220px; overflow: hidden;
+        }
+        .collection-card__image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .collection-card:hover .collection-card__image img { transform: scale(1.05); }
+        .collection-card__content { padding: 24px; }
+        .collection-card__tag {
+            display: inline-block; color: #b8946e; font-size: 0.72rem;
+            font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 6px;
+        }
+        .collection-card__content h3 { font-size: 1.15rem; margin-bottom: 8px; line-height: 1.4; }
+        .collection-card__content h3 a { color: #2d2d2d; text-decoration: none; transition: color 0.2s; }
+        .collection-card__content h3 a:hover { color: #5c7f5a; }
+        .collection-card__desc { font-size: 0.85rem; color: #8a8070; line-height: 1.6; margin-bottom: 14px; }
+        .collection-card__meta { font-size: 0.78rem; color: #5c7f5a; margin-bottom: 10px; font-weight: 500; }
+        .collection-card__articles { list-style: none; padding: 0; }
+        .collection-card__articles li { margin-bottom: 5px; }
+        .collection-card__articles a {
+            font-size: 0.82rem; color: #5c7f5a; text-decoration: none; line-height: 1.5;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .collection-card__articles a::before { content: "→"; color: #b8946e; font-weight: 600; }
+        .collection-card__articles a:hover { color: #3d5c3b; }
+        .collection-card__coming-soon { font-size: 0.78rem; color: #b8946e; font-style: italic; margin: 3px 0; }
+        @media (max-width: 640px) {
+            .collections-hero { padding: 40px 0 32px; }
+            .collections-hero h1 { font-size: 1.6rem; }
+            .collection-grid { grid-template-columns: 1fr; }
+        }
+        .breadcrumb {
+            max-width: 960px; margin: 0 auto; padding: 14px 24px 0;
+            font-size: 0.8rem; color: #8a8070;
+        }
+        .breadcrumb a { color: #5c7f5a; text-decoration: none; }
+        .breadcrumb a:hover { text-decoration: underline; }
+        .breadcrumb span { color: #8a8070; }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="logo"><img src="/assets/images/verdant-curation-logo.png" width="80" height="80" alt="Verdant Curation" style="vertical-align:middle;"></a>
+        <nav class="main-nav">
+            <a href="/">Home</a>
+            <a href="/articles/">Articles</a>
+            <a href="/collections/" class="active">Collections</a>
+<a href="/about/">About</a>
+                <a href="/contact/">Contact</a>
+                <a href="/privacy/">Privacy</a>
+                <a href="/affiliate-disclosure/">Disclosure</a>
+            </nav>
+    </div>
+</header>
+
+<div class="breadcrumb">
+    <a href="/">Home</a> / <span>Collections</span>
+</div>
+
+<section class="collections-hero">
+    <div class="container">
+        <h1>Collections</h1>
+        <p>Curated guides organized by theme — find the perfect plant-led look for every corner of your home.</p>
+    </div>
+</section>
+
+<div class="intro-section">
+    <h2>Browse by theme</h2>
+    <p>Each collection brings together related design guides, planting strategies, and care tips — so you can explore a complete look from concept to execution.</p>
+</div>
+
+<main class="container">
+    <div class="collection-grid">
+
+        <!-- Collection 1: Porch & Entryway -->
+        <div class="collection-card">
+            <div class="collection-card__image">
+                <img src="/assets/images/collections/porch.jpg" alt="Lush front porch entrance with summer planters and greenery" loading="lazy">
+            </div>
+            <div class="collection-card__content">
+                <span class="collection-card__tag">Seasonal · Planter Design</span>
+                <h3><a href="/articles/">Porch &amp; Entryway Gardens</a></h3>
+                <p class="collection-card__desc">Front porch planter ideas, design guides, and seasonal inspiration for transforming your entryway into a plant-led welcome.</p>
+                <p class="collection-card__meta">7 guides · Updated June 2026</p>
+                <ul class="collection-card__articles">
+                    <li><a href="/articles/summer-porch-23-ideas-2026/">23 Summer Front Porch Planter Ideas</a></li>
+                    <li><a href="/articles/monochromatic-green-foliage-guide/">Monochromatic Green Foliage Planter</a></li>
+                    <li><a href="/articles/scented-herb-corner-guide/">Scented Herb Corner Planter</a></li>
+                    <li><a href="/articles/succulent-cacti-bowl-guide/">Succulent &amp; Cacti Bowl</a></li>
+                    <li><a href="/articles/hanging-basket-wall-guide/">Hanging Basket Wall Garden</a></li>
+                    <li><a href="/articles/cottage-garden-overflow-guide/">Cottage Garden Overflow Front Porch Planter</a></li>
+                    <li><a href="/articles/single-statement-plant-guide/">Single Statement Plant Front Porch</a></li>
+                    <li><a href="/articles/tropical-giant-leaves-guide/">Tropical Giant Leaves Planter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Collection 2: Night Gardens & Fragrance -->
+        <div class="collection-card">
+            <div class="collection-card__image">
+                <img src="/assets/images/collections/night-garden.jpg" alt="Moonlit garden with white flowers glowing at night" loading="lazy">
+            </div>
+            <div class="collection-card__content">
+                <span class="collection-card__tag">Night Gardens · Fragrance</span>
+                <h3><a href="/collections/">Night Gardens &amp; Fragrance</a></h3>
+                <p class="collection-card__desc">Moon gardens, night-blooming plants, and scented flowers that transform your space after dark — designed for evening enjoyment.</p>
+                <p class="collection-card__meta">Coming summer 2026</p>
+                <ul class="collection-card__articles">
+                    <li class="collection-card__coming-soon">White Moon Garden (in production)</li>
+                    <li class="collection-card__coming-soon">Fragrant Jasmine & Night Bloomers (in production)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Collection 3: Water-Wise & Low-Maintenance -->
+        <div class="collection-card">
+            <div class="collection-card__image">
+                <img src="/assets/images/collections/water-wise.jpg" alt="Succulent and cacti arrangement in terracotta bowl" loading="lazy">
+            </div>
+            <div class="collection-card__content">
+                <span class="collection-card__tag">Water-Wise · Low Maintenance</span>
+                <h3><a href="/collections/">Water-Wise &amp; Low Maintenance</a></h3>
+                <p class="collection-card__desc">Succulents, cacti, drought-tolerant natives, and plants that thrive on minimal care — beautiful without the daily watering.</p>
+                <p class="collection-card__meta">1 guide so far · More coming</p>
+                <ul class="collection-card__articles">
+                    <li><a href="/articles/succulent-cacti-bowl-guide/">Succulent &amp; Cacti Bowl</a></li>
+                    <li class="collection-card__coming-soon">Drought-Tolerant Native Planter (in production)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Collection 4: Kitchen & Cutting Garden -->
+        <div class="collection-card">
+            <div class="collection-card__image">
+                <img src="/assets/images/collections/kitchen-garden.jpg" alt="Fresh herbs in ceramic pots on a kitchen windowsill" loading="lazy">
+            </div>
+            <div class="collection-card__content">
+                <span class="collection-card__tag">Edible · Cut Flowers</span>
+                <h3><a href="/collections/">Kitchen &amp; Cutting Garden</a></h3>
+                <p class="collection-card__desc">Herbs, edible flowers, and cut-flower gardens that bring the farm-to-table experience to your doorstep.</p>
+                <p class="collection-card__meta">1 guide so far · More coming</p>
+                <ul class="collection-card__articles">
+                    <li><a href="/articles/scented-herb-corner-guide/">Scented Herb Corner Planter</a></li>
+                    <li class="collection-card__coming-soon">Edible Companion Planting (in production)</li>
+                    <li class="collection-card__coming-soon">Cut-Flower Garden Pot (in production)</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Verdant Curation. All rights reserved. &middot; <a href="/privacy/" style="color:#8baa86;text-decoration:none;">Privacy</a> &middot; <a href="/affiliate-disclosure/" style="color:#8baa86;text-decoration:none;">Disclosure</a></p>
+        <p class="footer-tagline">Plant-led living, curated.</p>
+    </div>
+</footer>
+
+</body>
+</html>
