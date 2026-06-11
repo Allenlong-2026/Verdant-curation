@@ -51,7 +51,7 @@ body {
 .hero {
   background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
               url('/assets/images/hero-bg.jpg') center center / cover no-repeat;
-  color: var(--white); padding: 36px 0 28px; text-align: center;
+  color: var(--white); padding: 18px 0 14px; text-align: center;
   position: relative;
 }
 .hero .container { position: relative; z-index: 1; }
@@ -68,8 +68,8 @@ body {
 }
 
 /* === Sections === */
-.featured { padding: 28px 0; }
-.recent-articles { padding: 0 0 36px; }
+.featured { padding: 16px 0; }
+.recent-articles { padding: 0 0 20px; }
 .section-title {
   font-size: 0.8rem; color: var(--gray-500); text-transform: uppercase;
   letter-spacing: 1.5px; font-weight: 600; margin-bottom: 24px;
@@ -203,7 +203,7 @@ body {
 
 /* === Responsive === */
 @media (max-width: 640px) {
-  .hero { padding: 20px 0 18px; }
+  .hero { padding: 10px 0 10px; }
   .hero h1 { font-size: 1.8rem; }
   .hero p { font-size: 0.92rem; }
   .grid { grid-template-columns: 1fr; }
