@@ -38,8 +38,9 @@ body {
 .site-header .container {
   display: flex; align-items: center; justify-content: space-between;
 }
-.logo svg { display: block; }
-.logo img { width: 120px; height: auto; }
+.logo { display: flex; align-items: center; }
+.logo .logo-img { width: 170px; height: auto; }
+.logo, .logo * { pointer-events: none; } /* prevent pin-it from targeting logo */
 .main-nav a {
   color: var(--gray-500); text-decoration: none; font-size: 0.95rem;
   margin-left: 28px; transition: color 0.2s; font-weight: 500;
@@ -48,9 +49,12 @@ body {
 
 /* === Hero === */
 .hero {
-  background: linear-gradient(135deg, #4d6b4a 0%, #6b8f69 50%, #8baa86 100%);
+  background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+              url('/assets/images/hero-bg.jpg') center center / cover no-repeat;
   color: var(--white); padding: 72px 0 56px; text-align: center;
+  position: relative;
 }
+.hero .container { position: relative; z-index: 1; }
 .hero h1 {
   font-size: 2.6rem; font-weight: 700; line-height: 1.2;
   letter-spacing: -0.5px;
@@ -141,11 +145,32 @@ body {
 /* === Footer === */
 .site-footer {
   background: var(--charcoal); color: var(--cream);
-  padding: 36px 0; text-align: center; margin-top: 48px;
+  padding: 48px 0 0; margin-top: 48px;
 }
-.site-footer p { font-size: 0.82rem; opacity: 0.7; }
-.footer-tagline {
-  font-style: italic; font-size: 0.8rem; margin-top: 4px; opacity: 0.5;
+.footer-grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px;
+  margin-bottom: 32px;
+}
+.footer-logo { width: 120px; height: auto; margin-bottom: 12px; opacity: 0.9; }
+.footer-brand p { font-size: 0.85rem; opacity: 0.65; line-height: 1.6; }
+.footer-col h4 {
+  font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--sage-light); margin-bottom: 14px; font-weight: 600;
+}
+.footer-nav { display: flex; flex-direction: column; gap: 8px; }
+.footer-nav a {
+  color: var(--cream); text-decoration: none; font-size: 0.88rem; opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.footer-nav a:hover { opacity: 1; color: var(--sage-pale); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08); padding: 24px 0;
+  text-align: center;
+}
+.footer-bottom p { font-size: 0.78rem; opacity: 0.5; margin-bottom: 4px; }
+.footer-disclosure {
+  font-size: 0.72rem; opacity: 0.4; max-width: 600px; margin: 0 auto 12px;
+  line-height: 1.5;
 }
 
 /* === Pin It Overlay === */
@@ -186,4 +211,8 @@ body {
   .main-nav a { margin: 0 12px; font-size: 0.9rem; }
   .card__image { height: 180px; }
   .card--featured .card__image { height: 220px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-brand { text-align: center; }
+  .footer-logo { margin: 0 auto 12px; }
+  .footer-nav { align-items: center; }
 }

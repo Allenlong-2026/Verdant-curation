@@ -7,8 +7,8 @@
   'use strict';
 
   function addPinButtons() {
-    // Find all images in the article content area
-    var imgs = document.querySelectorAll('.container img, .hero-wrap img, .scene-img-wrap img');
+    // Find all images in the article content area — exclude logo and nav images
+    var imgs = document.querySelectorAll('.container img:not(.logo-img):not(.site-header img), .hero-wrap img, .scene-img-wrap img, .image-wrap img, .img-wrapper img, .article-container img, .section-img, img.hero-img');
     if (!imgs.length) return;
 
     imgs.forEach(function(img) {
