@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VCOS Template 2301 V3 — UI Fusion</title>
+<style>
+/* === CSS VARIABLES (VC Ecosystem + 2301 Compatibility) === */
+:root {
+  --g:#2D5A27; --s:#8FBC8F; --c:#FFFDD0; --t:#E2725B; --l:#B39EB5;
+  --bg:#FAF6F0; --txt:#2C2C2C; --lg:#F0EDE8;
+  --sage:var(--g); --sage-dark:#1A3A1A; --cream:var(--bg); --paper:#FFFFFF;
+  --beige:#D9C7A3; --terracotta:var(--t); --ink:var(--txt); --muted:#666666; --line:var(--lg);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.8;color:var(--txt);background:var(--bg)}
+img{max-width:100%;height:auto}
+
+/* === SITE HEADER === */
+.site-header{background:#fff;border-bottom:1px solid var(--lg);padding:16px 0}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.logo-img{height:40px;width:auto}
+.main-nav{display:flex;gap:16px;flex-wrap:wrap}
+.main-nav a{color:var(--muted);text-decoration:none;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.08em;transition:color .2s}
+.main-nav a:hover,.main-nav a.active{color:var(--g)}
+.container{width:min(1180px,92vw);margin:0 auto;padding:0 20px}
+
+/* === HERO === */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:56px 0 38px}
+.kicker{color:var(--terracotta);text-transform:uppercase;letter-spacing:.18em;font-size:13px;margin-bottom:10px}
+.byline{color:var(--muted);font-size:14px;font-style:italic;margin-bottom:8px}
+h1{font-size:58px;line-height:1.04;font-weight:400;color:var(--sage-dark);margin:14px 0 18px}
+.subtitle{font-size:21px;color:var(--muted);line-height:1.5}
+.meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.pill{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:13px;color:var(--muted)}
+.hero-img{min-height:680px;border-radius:30px;background:url('/assets/images/articles/european-cottage-front-porch/hero_s01.png') center/cover;box-shadow:0 26px 60px rgba(54,65,55,.22);position:relative;overflow:hidden}
+
+/* === SECTION CARDS === */
+.section{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:44px;margin:34px 0;box-shadow:0 12px 35px rgba(65,64,52,.06)}
+.section-title{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.num{width:42px;height:42px;border-radius:50%;background:var(--sage);color:white;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+h2{margin:0;font-size:34px;font-weight:400;color:var(--sage-dark)}
+h3{font-size:22px;color:var(--sage-dark);font-weight:400;margin:0 0 12px}
+.lead{font-size:22px;color:var(--muted);max-width:850px;line-height:1.6}
+
+/* === BREAKDOWN === */
+.breakdown-img{height:420px;border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(0,0,0,.10)),linear-gradient(135deg,#d4c4a4,#84987e 55%,#586b57);position:relative;overflow:hidden}
+.breakdown-img:after{content:"ANNOTATED DESIGN BREAKDOWN";position:absolute;left:28px;bottom:26px;color:white;font-size:24px;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+.callouts{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:20px}
+.callout{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;font-size:14px;line-height:1.5}
+.callout b{display:block;color:var(--sage-dark);margin-bottom:6px;font-size:15px}
+
+/* === TAB SYSTEM === */
+.tab-bar{display:flex;gap:4px;margin-bottom:28px;background:var(--bg);border-radius:16px;padding:4px}
+.tab-btn{flex:1;padding:18px 12px;border:none;border-radius:12px;background:transparent;cursor:pointer;font-family:Georgia,serif;font-size:17px;color:var(--muted);transition:all .25s;text-align:center;line-height:1.3}
+.tab-btn:hover{background:rgba(45,90,39,.08);color:var(--g)}
+.tab-btn.active{background:var(--sage);color:white;box-shadow:0 2px 8px rgba(45,90,39,.25)}
+.tab-btn .tab-sub{display:block;font-size:12px;opacity:.65;margin-top:3px;font-weight:400}
+.tab-btn.active .tab-sub{opacity:.85}
+.tab-panel{display:none;animation:fadeIn .3s ease}.tab-panel.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* === CONCEPT DETAIL === */
+.concept-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:28px;margin-bottom:24px}
+.concept-hero{min-height:360px;border-radius:20px;overflow:hidden;background:linear-gradient(135deg,#cbb996,#7f927c 55%,#596b57);position:relative}
+.concept-hero.c-a{background:url('/assets/images/articles/european-cottage-front-porch/img_1.jpg') center/cover}
+.concept-hero.c-b{background:url('/assets/images/articles/european-cottage-front-porch/img_4.jpg') center/cover}
+.concept-hero.c-c{background:url('/assets/images/articles/european-cottage-front-porch/img_2.jpg') center/cover}
+.concept-story p{color:var(--muted);font-size:15px;line-height:1.7;margin:0}
+.notes-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+.note{background:white;border-left:5px solid var(--terracotta);border-radius:16px;padding:16px 18px;font-size:14px;line-height:1.5}
+.palette{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.item{background:white;border:1px solid var(--line);border-radius:16px;padding:12px 14px;font-size:14px}
+.item b{display:block;color:var(--sage-dark);margin-bottom:4px}
+.cost-list{display:grid;gap:8px}
+.cost-row{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:10px;background:white;border:1px solid var(--line);border-radius:14px;padding:11px 13px;font-size:14px;align-items:center}
+.cost-row.head{background:var(--sage-dark);color:white;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+
+/* === FAQ + RELATED === */
+.public-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.faq details{background:white;border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:12px}
+.faq summary{cursor:pointer;color:var(--sage-dark);font-size:18px;font-weight:600}
+.faq p{margin-top:10px;color:var(--muted);font-size:15px}
+.related{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.related a{display:block;background:white;border:1px solid var(--line);border-radius:18px;padding:18px;min-height:120px;text-decoration:none;color:var(--ink);transition:box-shadow .2s}
+.related a:hover{box-shadow:0 4px 15px rgba(0,0,0,.08)}
+.related a b{display:block;color:var(--sage-dark);font-size:18px;margin-bottom:6px}
+.related a span{font-size:14px;color:var(--muted)}
+
+/* === DOWNLOAD CTA === */
+.download{text-align:center;background:linear-gradient(135deg,var(--g),var(--sage-dark));color:white;padding:52px}
+.download h2{color:white;margin-bottom:12px}
+.download p{font-size:17px;opacity:.9;max-width:600px;margin:0 auto 20px}
+.form{margin:24px auto 0;max-width:520px;display:flex;gap:12px}
+input{flex:1;border:0;border-radius:999px;padding:16px 20px;font-size:15px;outline:0}
+button{border:0;border-radius:999px;padding:16px 28px;background:var(--t);color:white;font-weight:bold;letter-spacing:.08em;cursor:pointer;font-size:14px;transition:opacity .2s}
+button:hover{opacity:.85}
+
+/* === FOOTER === */
+.site-footer{text-align:center;color:var(--muted);font-size:13px;padding:32px 0 48px;border-top:1px solid var(--line);margin-top:40px}
+
+/* === RESPONSIVE === */
+@media(max-width:900px){
+.hero,.public-grid,.concept-layout{grid-template-columns:1fr}
+.callouts{grid-template-columns:1fr}.palette{grid-template-columns:1fr}.notes-grid{grid-template-columns:1fr}
+h1{font-size:42px}.hero-img{min-height:520px}
+.section{padding:30px}
+.tab-bar{flex-direction:column;gap:2px}.tab-btn{padding:12px}
+.main-nav{display:none}
+}
+@media(max-width:600px){
+h1{font-size:32px}.hero-img{min-height:360px}
+.container{padding:0 12px}
+}
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER (VC Ecosystem) -->
+<header class="site-header">
+<div class="container">
+<a href="/" class="logo"><img src="/assets/images/verdant-curation-logo.png" alt="Verdant Curation" class="logo-img"></a>
+<nav class="main-nav">
+<a href="/">Home</a>
+<a href="/articles/" class="active">Articles</a>
+<a href="/collections/">Collections</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+<a href="/privacy/">Privacy</a>
+<a href="/affiliate-disclosure/">Disclosure</a>
+</nav>
+</div>
+</header>
+
+<main class="container">
+
+<!-- SECTION-001-HERO -->
+<section class="hero">
+<div>
+<div class="kicker">Romantic Cottage Porch</div>
+<p class="byline">By Verdant Curation · June 15, 2026</p>
+<h1>A Porch Wrapped in Roses and Golden Hour Light</h1>
+<p class="subtitle">A golden-hour entryway wrapped in climbing roses — the inspiration for three design concepts at every budget.</p>
+<div class="meta"><span class="pill">Budget $699–$3,999</span><span class="pill">3 Design Concepts</span><span class="pill">Romantic Cottage Style</span></div>
+</div>
+<div class="hero-img"></div>
+</section>
+
+<!-- SECTION-002-MOOD-OPENING (Placeholder) -->
+<section class="section"><div class="section-title"><div class="num">01</div><h2>Mood Opening</h2></div><p class="lead">There is a kind of porch that feels less like an entryway and more like a pause — a soft moment between the garden and the home.</p><p style="color:var(--muted)">Placeholder: 杂志式开场文字。重点不是教学，而是创造向往感、画面感和情绪记忆，让读者愿意继续浏览下面的三个设计方案。</p></section>
+
+<!-- SECTION-003-DESIGN-BREAKDOWN (Placeholder) -->
+<section class="section"><div class="section-title"><div class="num">02</div><h2>Why This Design Works</h2></div><div class="breakdown-img"></div><div class="callouts"><div class="callout"><b>Focal Point</b>Placeholder description</div><div class="callout"><b>Height</b>Placeholder description</div><div class="callout"><b>Texture</b>Placeholder description</div><div class="callout"><b>Color</b>Placeholder description</div><div class="callout"><b>Movement</b>Placeholder description</div></div></section>
+
+<!-- SECTION-004-CONCEPT-GRID (Tab) -->
+<section class="section">
+<div class="section-title"><div class="num">03</div><h2>Choose Your Design Concept</h2></div>
+<p class="lead">Each concept has its own hero image, design story, plant palette, and budget. Click a tab below to explore the full plan.</p>
+<div class="tab-bar" role="tablist">
+<button class="tab-btn" data-tab="concept-a" role="tab">Concept A<span class="tab-sub">Soft Cottage Starter · $699</span></button>
+<button class="tab-btn active" data-tab="concept-b" role="tab">Concept B<span class="tab-sub">Designer Balanced · $1,575</span></button>
+<button class="tab-btn" data-tab="concept-c" role="tab">Concept C<span class="tab-sub">Full Editorial Porch · $3,965</span></button>
+</div>
+
+<!-- Concept A -->
+<div class="tab-panel" id="concept-a" role="tabpanel">
+<div class="concept-layout">
+<div class="concept-hero c-a"></div>
+<div class="concept-story">
+<h3>Concept A — Soft Cottage Starter</h3>
+<p>Placeholder: Concept Story 200-300字。解释这个方案的情绪、适用空间、读者能得到的视觉效果。</p>
+</div></div>
+<div class="notes-grid">
+<div class="note">Best for: first-time porch refresh, rental homes, smaller entryways.</div>
+<div class="note">Key principle: Fewer containers, larger visual anchors.</div>
+</div>
+<h3>Design Palette</h3>
+<div class="palette">
+<div class="item"><b>Hydrangea</b>Focal flower, real preferred</div>
+<div class="item"><b>Lavender</b>Scent layer, faux acceptable</div>
+<div class="item"><b>Terracotta Pot</b>Warm cottage base</div>
+<div class="item"><b>Small Lantern</b>Evening atmosphere</div>
+</div>
+<h3>Cost Estimate</h3>
+<div class="cost-list">
+<div class="cost-row head"><div>Item</div><div>Qty</div><div>Estimate</div></div>
+<div class="cost-row"><div>Terracotta urn (18")</div><div>2</div><div>$90</div></div>
+<div class="cost-row"><div>Hydrangea (3-gal)</div><div>1</div><div>$35</div></div>
+<div class="cost-row"><div>Lavender + greenery</div><div>5</div><div>$85</div></div>
+<div class="cost-row"><div>Bench + cushion</div><div>1</div><div>$180</div></div>
+<div class="cost-row"><div>Accessories + delivery</div><div>Set</div><div>$155</div></div>
+<div class="cost-row head"><div>Total</div><div></div><div>$699</div></div>
+</div>
+</div>
+
+<!-- Concept B (Default) -->
+<div class="tab-panel active" id="concept-b" role="tabpanel">
+<div class="concept-layout">
+<div class="concept-hero c-b"></div>
+<div class="concept-story">
+<h3>Concept B — Designer Balanced</h3>
+<p>Placeholder: 这是默认展示的中档方案。它应该是文章的主推荐方案，也是最适合 Pinterest 收藏与实际落地的方案。包含完整故事、设计笔记、调色板、成本表。</p>
+</div></div>
+<div class="notes-grid">
+<div class="note">Best for: standard front porch, blog hero article, family home exterior refresh.</div>
+<div class="note">Key upgrade: climbing roses + stone urns + layered lighting.</div>
+</div>
+<h3>Design Palette</h3>
+<div class="palette">
+<div class="item"><b>Hydrangea</b>Primary floral focal point</div>
+<div class="item"><b>Climbing Roses</b>'New Dawn' pink + 'Iceberg' white</div>
+<div class="item"><b>Boston Fern + Ivy</b>Soft volume + trailing</div>
+<div class="item"><b>Stone Urn Pair</b>Architectural container</div>
+</div>
+<h3>Cost Estimate</h3>
+<div class="cost-list">
+<div class="cost-row head"><div>Item</div><div>Qty</div><div>Estimate</div></div>
+<div class="cost-row"><div>Stone urns (premium)</div><div>2</div><div>$360</div></div>
+<div class="cost-row"><div>Climbing roses + hydrangea</div><div>Set</div><div>$240</div></div>
+<div class="cost-row"><div>Bench + cushions + throw</div><div>Set</div><div>$260</div></div>
+<div class="cost-row"><div>Lighting (2 lanterns + string)</div><div>Set</div><div>$115</div></div>
+<div class="cost-row"><div>Accent pots + soil + delivery</div><div>Set</div><div>$240</div></div>
+<div class="cost-row"><div>Half-day garden assistant</div><div>—</div><div>$200</div></div>
+<div class="cost-row"><div>Seasonal replacement fund</div><div>—</div><div>$75</div></div>
+<div class="cost-row head"><div>Total</div><div></div><div>$1,575</div></div>
+</div>
+</div>
+
+<!-- Concept C -->
+<div class="tab-panel" id="concept-c" role="tabpanel">
+<div class="concept-layout">
+<div class="concept-hero c-c"></div>
+<div class="concept-story">
+<h3>Concept C — Full Editorial Porch</h3>
+<p>Placeholder: 高配方案描述。重点写完整场景、杂志感、强收藏价值。</p>
+</div></div>
+<div class="notes-grid">
+<div class="note">Best for: flagship article, campaign feature, premium porch inspiration.</div>
+<div class="note">Key: abundant but never messy — restraint through repetition.</div>
+</div>
+<h3>Design Palette</h3>
+<div class="palette">
+<div class="item"><b>Climbing Roses (4+)</b>Wall-to-wall coverage</div>
+<div class="item"><b>Hydrangea Urns</b>Premium floral mass</div>
+<div class="item"><b>Large Ferns</b>Soft architecture</div>
+<div class="item"><b>Iron Arbor + Fountain</b>Custom features</div>
+</div>
+<h3>Cost Estimate</h3>
+<div class="cost-list">
+<div class="cost-row head"><div>Item</div><div>Qty</div><div>Estimate</div></div>
+<div class="cost-row"><div>Premium stone urns</div><div>3</div><div>$600</div></div>
+<div class="cost-row"><div>Mature plants (roses/hydrangeas)</div><div>Set</div><div>$380</div></div>
+<div class="cost-row"><div>Custom iron arbor</div><div>1</div><div>$450</div></div>
+<div class="cost-row"><div>Designer bench + accessories</div><div>Set</div><div>$350</div></div>
+<div class="cost-row"><div>Lighting + fountain</div><div>Set</div><div>$330</div></div>
+<div class="cost-row"><div>Flooring upgrade tiles</div><div>—</div><div>$350</div></div>
+<div class="cost-row"><div>Landscape consultation + labor</div><div>2 days</div><div>$950</div></div>
+<div class="cost-row"><div>Delivery + materials</div><div>—</div><div>$180</div></div>
+<div class="cost-row head"><div>Total</div><div></div><div>$3,965</div></div>
+</div>
+</div>
+</section>
+
+<!-- SECTION-005-FAQ + SECTION-006-RELATED (Placeholder) -->
+<section class="section public-grid">
+<div><div class="section-title"><div class="num">04</div><h2>FAQ</h2></div>
+<div class="faq">
+<details open><summary>Can this work on a small porch?</summary><p>Yes. Keep the same design logic but reduce the number of containers.</p></details>
+<details><summary>Should I use real or faux plants?</summary><p>Use real plants for focal points and faux for difficult areas or maintenance reduction.</p></details>
+<details><summary>Which concept is best for most homes?</summary><p>Concept B is the best default because it balances visual impact, cost, and maintenance.</p></details>
+</div></div>
+<div><div class="section-title"><div class="num">05</div><h2>Related Articles</h2></div>
+<div class="related">
+<a href="#"><b>Summer Porch Ideas</b><span>Coming placeholder</span></a>
+<a href="#"><b>French Country Porch</b><span>Coming placeholder</span></a>
+<a href="#"><b>Hydrangea Guide</b><span>Plant library placeholder</span></a>
+<a href="#"><b>Lavender Guide</b><span>Plant library placeholder</span></a>
+</div></div>
+</section>
+
+<!-- SECTION-007-LEAD-MAGNET (Placeholder) -->
+<section class="section download">
+<h2>Download the Porch Design Checklist</h2>
+<p>全站统一 Lead Magnet 组件占位：植物清单、预算表、采购清单。</p>
+<div class="form"><input placeholder="Email address"><button>DOWNLOAD</button></div>
+</section>
+
+</main>
+
+<!-- SITE FOOTER (VC Ecosystem) -->
+<footer class="site-footer">Verdant Curation · 2026 · All images are AI-generated for illustrative purposes.</footer>
+
+<script>
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('.tab-btn');
+  if (!btn) return;
+  var tabId = btn.getAttribute('data-tab');
+  var container = btn.closest('.section');
+  container.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  container.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  btn.classList.add('active');
+  container.querySelector('#' + tabId).classList.add('active');
+});
+</script>
+
+</body>
+</html>

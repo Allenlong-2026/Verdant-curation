@@ -1,378 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verdant Curation — Plant-led Home & Garden</title>
-    <meta name="description" content="Expert guides on houseplants, green living, and botanical home decor. Discover plant-led design ideas that bring life to your space.">
-    <meta name="google-site-verification" content="I7-A5P1Ik7oXOfi0iBhf-TwUuWzFYzsY0UVlKOr6Uqk" />
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <script defer src="/assets/js/pin-it.js"></script></head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5e67a184edd141379502dfaf55ce0ea7"}'></script>
+<!-- End Cloudflare Web Analytics -->
+<title>Verdant Curation — Curate Your Space</title>
+<meta name="description" content="Curated design guides and plant pairings for the modern front porch.">
+<style>
+/* ============================================================
+   2301V9.2 — HOMEPAGE REVISED
+   Based on original layout with user modifications:
+   - Logo in header
+   - Logo+About on RIGHT side of hero
+   - Slogan centered
+   - Sticky nav, -30% height
+   - ITC Benguiat font
+   - SKU numbering on cards
+============================================================ */
+
+/* === BRAND VARIABLES === */
+:root{--g:#2D5A27;--s:#8FBC8F;--c:#FFFDD0;--t:#E2725B;--l:#B39EB5;--bg:#FAF6F0;--txt:#2C2C2C;--lg:#F0EDE8;--sage:var(--g);--sage-dark:#1A3A1A;--cream:var(--bg);--paper:#FFF;--beige:#D9C7A3;--terracotta:var(--t);--ink:var(--txt);--muted:#666;--line:var(--lg)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Georgia,"Times New Roman",serif;font-size:16px;line-height:1.8;color:var(--txt);background:var(--bg)}
+img{max-width:100%;height:auto;display:block}
+
+/* === LAYOUT === */
+.container{width:min(1240px,92vw);margin:0 auto;padding:0 24px}
+
+/* ================================================================
+   STICKY HEADER (fixed, reduced height)
+   ================================================================ */
+.site-header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 0}
+.site-header .container{display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:8px;position:relative}
+.logo-link{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0}
+/* Logo — brand font ITC Benguiat */
+@font-face{font-family:'ITC Benguiat';src:local('ITC Benguiat'),local('Benguiat'),local('Georgia');font-weight:700;font-style:normal}
+.logo-text{font-size:16px;letter-spacing:.08em;color:#d4c9a8;text-transform:uppercase;font-family:'ITC Benguiat','Georgia',serif;font-weight:700;white-space:nowrap}
+.main-nav{display:flex;gap:14px;align-items:center;flex-wrap:nowrap;overflow-x:auto}
+.main-nav a{color:rgba(255,255,255,.8);text-decoration:none;font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.1em;transition:color .2s;white-space:nowrap}
+.main-nav a:hover{color:#fff}
+.nav-blog-btn{background:var(--terracotta);color:#fff!important;padding:6px 16px;border-radius:999px;font-weight:600}
+
+/* === HAMBURGER MENU (mobile only) === */
+.hamburger-btn{display:none;background:none;border:none;cursor:pointer;padding:4px;color:#d4c9a8;font-size:22px;line-height:1;align-items:center;justify-content:center;flex-shrink:0}
+.nav-overlay{display:none}
+.nav-overlay.open{display:flex}
+
+/* ================================================================
+   HERO BANNER — 3-SLIDE CAROUSEL
+   P01-P03: Slide background images
+   H01: Slogan + Carousel controls
+   ================================================================ */
+.hero-banner{position:relative;height:540px;overflow:hidden;margin-top:46px}
+.hero-slide{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity 1s ease}
+.hero-slide.active{opacity:1;z-index:1}
+.hero-slide-bg{position:absolute;inset:0;width:100%;height:100%;background-size:cover;background-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.65),rgba(0,0,0,.45));z-index:2}
+.hero-content{position:relative;z-index:3;width:100%;height:100%;padding:60px 0 36px;display:flex;flex-direction:column}
+.carousel-dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:10px}
+.carousel-dots .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s}
+.carousel-dots .dot.active{background:#fff;width:28px;border-radius:5px}
+
+/* Slogan: centered vertically + horizontally */
+.slogan-wrap{flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
+.slogan-wrap h1{font-family:'ITC Benguiat','Georgia',serif;font-weight:700;font-size:44px;line-height:1.12;color:#fff;letter-spacing:.04em;text-shadow:0 2px 16px rgba(0,0,0,.4);max-width:700px}
+
+/* About block: bottom-left */
+.about-block{display:flex;align-items:flex-start;gap:20px;margin-top:auto;align-self:center;flex-wrap:wrap;justify-content:center}
+.about-block .ab-logo{width:60px;height:60px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--g);color:#fff;font-size:20px;font-weight:700;font-family:Georgia,serif;margin-top:2px}
+.about-block .ab-text{flex:0 1 auto;max-width:380px}
+.about-block .ab-text p{color:rgba(255,255,255,.85);font-size:13px;line-height:1.55;margin:0}
+.about-block .ab-actions{display:flex;flex-wrap:wrap;gap:6px;flex:1 1 100%;justify-content:center;margin-top:6px;padding-left:80px}
+.ab-btn{padding:6px 16px;border-radius:999px;font-size:11px;font-family:'Helvetica Neue',Arial,sans-serif;text-decoration:none;font-weight:600;letter-spacing:.06em;display:inline-block;transition:opacity .2s}
+.ab-btn:hover{opacity:.85}
+.ab-ig{background:#d4785c;color:#fff}
+.ab-pf{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.ab-pin{background:#bd081c;color:#fff}
+.ab-story{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);padding:6px 20px;border-radius:999px;font-size:11px;font-family:'Helvetica Neue',Arial,sans-serif;text-decoration:none;font-weight:500;display:inline-block;transition:background .2s;margin-top:8px}
+.ab-story:hover{background:rgba(255,255,255,.2)}
+
+/* ================================================================
+   BELOW HERO — SECTIONS FROM V9.0 (adapted)
+   ================================================================ */
+.hp-section{padding:28px 0}
+.hp-section + .hp-section{border-top:1px solid var(--line)}
+.hp-heading{text-align:center;margin-bottom:20px}
+.hp-heading h2{font-size:28px;font-weight:400;color:var(--sage-dark)}
+.hp-heading .tag{color:var(--terracotta);font-size:12px;text-transform:uppercase;letter-spacing:.14em;margin-bottom:4px;font-family:'Helvetica Neue',Arial,sans-serif}
+
+/* --- BLOG GRID --- */
+.blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+
+/* --- ARTICLE CARD with SKU --- */
+.article-card{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:var(--ink);transition:box-shadow .25s;display:flex;flex-direction:column;position:relative}
+.article-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.06)}
+.article-card .card-img{width:100%;height:180px;display:block;object-fit:cover}
+.article-card .card-body{padding:12px 16px 16px;flex:1;display:flex;flex-direction:column;position:relative}
+/* SKU: top right of card body */
+.article-card .card-sku{position:absolute;top:8px;right:12px;font-size:10px;color:var(--muted);font-family:'Courier New',monospace;letter-spacing:.5px;opacity:.6}
+.article-card .card-cat{color:var(--terracotta);font-size:11px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;font-family:'Helvetica Neue',Arial,sans-serif;padding-right:60px}
+.article-card h3{font-size:16px;font-weight:400;color:var(--sage-dark);line-height:1.3;margin:0 0 4px;padding-right:60px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-card p{font-size:13px;color:var(--muted);line-height:1.5;margin:0;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article-card .card-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.article-card .card-meta span{background:var(--bg);border-radius:999px;padding:2px 7px;font-size:10px;color:var(--muted)}
+
+/* --- THEME GRID --- */
+.theme-header{display:flex;align-items:baseline;gap:10px;margin-bottom:14px}
+.theme-header h2{font-size:22px;font-weight:400;color:var(--sage-dark)}
+.theme-header .theme-icon{font-size:24px}
+.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+
+/* --- EDITOR'S PICKS (2 large cards) --- */
+.ep-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.ep-card{background:var(--paper);border:1px solid var(--line);border-radius:24px;overflow:hidden;text-decoration:none;color:var(--ink);transition:box-shadow .3s;display:flex;flex-direction:column}
+.ep-card:hover{box-shadow:0 12px 36px rgba(0,0,0,.08)}
+.ep-card .ep-img{width:100%;height:280px;display:block;object-fit:cover}
+.ep-card .ep-body{padding:22px 24px 26px;position:relative}
+.ep-card .ep-badge{position:absolute;top:-12px;left:24px;background:var(--terracotta);color:#fff;font-size:13px;padding:4px 14px;border-radius:999px;font-family:'Helvetica Neue',Arial,sans-serif;font-weight:600}
+.ep-card .ep-cat{color:var(--terracotta);font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+.ep-card h3{font-size:22px;font-weight:400;color:var(--sage-dark);margin:0 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ep-card p{font-size:15px;color:var(--muted);line-height:1.6;margin:0;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* --- CTA BUTTON --- */
+.cta-row{text-align:center;padding:8px 0}
+.cta-row a{display:inline-block;background:var(--terracotta);color:#fff;padding:12px 32px;border-radius:999px;text-decoration:none;font-size:15px;font-family:'Helvetica Neue',Arial,sans-serif;font-weight:600;letter-spacing:.05em}
+
+/* --- SUBSCRIBE --- */
+.subscribe-wrap{background:var(--sage-dark);border-radius:24px;padding:40px;text-align:center;color:#fff;margin:12px auto;max-width:720px}
+.subscribe-wrap h2{font-size:26px;font-weight:400;margin-bottom:6px;color:#fff;text-align:center}
+.subscribe-wrap p{font-size:15px;opacity:.8;margin-bottom:16px;max-width:500px;margin-left:auto;margin-right:auto;text-align:center}
+.sub-form{display:flex;gap:10px;max-width:440px;margin:0 auto}
+.sub-form input{flex:1;border:0;border-radius:999px;padding:12px 18px;font-size:14px;outline:0}
+.sub-form button{border:0;border-radius:999px;padding:12px 26px;background:var(--terracotta);color:#fff;font-weight:700;letter-spacing:.08em;cursor:pointer;font-size:13px}
+
+/* === FOOTER === */
+.site-footer{background:var(--sage-dark);color:rgba(255,255,255,.85);padding:40px 0 28px;margin-top:36px}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+.footer-brand .footer-logo{height:48px;width:auto;display:block;margin-bottom:10px}
+.footer-brand p{font-size:13px;line-height:1.6;opacity:.8;max-width:280px}
+.footer-col h4{color:#fff;font-size:13px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;font-family:'Helvetica Neue',Arial,sans-serif}
+.footer-col a{display:block;color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;padding:3px 0;font-family:'Helvetica Neue',Arial,sans-serif}
+.footer-col a:hover{color:#fff}
+.footer-copyright{border-top:1px solid rgba(255,255,255,.1);margin-top:28px;padding:16px 0 0;text-align:center}
+.footer-copyright p{font-size:12px;opacity:.6;margin:0}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media(max-width:900px){
+.hero-banner{height:480px;min-height:480px}
+.hero-content{padding:52px 0 24px}
+.slogan-wrap h1{font-size:32px!important}
+.about-block{flex-wrap:nowrap;gap:10px;width:100%}
+.about-block .ab-logo{width:40px;height:40px;font-size:14px;align-self:flex-start;margin-top:4px}
+.about-block .ab-actions{flex:none;flex-direction:column;gap:4px;padding-left:0;margin-top:0;justify-content:flex-start}
+.blog-grid{grid-template-columns:repeat(2,1fr)}
+.theme-grid{grid-template-columns:repeat(2,1fr)}
+.ep-grid{grid-template-columns:1fr}
+.main-nav{gap:10px;overflow-x:auto}
+.main-nav a{font-size:11px}
+.footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+.footer-brand{grid-column:1/-1}
+}
+@media(max-width:600px){
+.hero-banner{min-height:auto;margin-top:44px}
+.hero-content{padding:24px 0}
+.hero-slogan h1{font-size:26px}
+.hero-about{padding:20px;border-radius:16px}
+.hero-about h2{font-size:20px}
+.blog-grid{grid-template-columns:1fr}
+.theme-grid{grid-template-columns:1fr}
+.ep-grid{grid-template-columns:1fr}
+.ep-card .ep-img{height:200px}
+.sub-form{flex-direction:column}
+.sub-form button{width:100%}
+.main-nav a{font-size:11px;letter-spacing:.06em}
+.logo-text{font-size:14px}
+.hero-banner{height:440px!important;margin-top:44px}
+.hero-slide{position:absolute;z-index:0;opacity:0;transition:opacity 1s ease;min-height:440px}
+.hero-slide.active{opacity:1;z-index:1}
+.container{padding:0 16px}
+.about-block{gap:8px}
+.about-block .ab-text p{font-size:11px;line-height:1.4}
+.about-block .ab-actions{gap:3px}
+.about-block .ab-actions .ab-btn{padding:4px 10px;font-size:10px}
+.about-actions{gap:6px}
+.btn-social{padding:6px 14px;font-size:11px}
+/* Hamburger menu on mobile */
+.hamburger-btn{display:flex!important;color:#fff!important;font-size:26px!important;padding:4px 8px!important;background:rgba(255,255,255,.1)!important;border-radius:6px!important;position:absolute!important;right:16px;top:50%;transform:translateY(-50%)}
+.site-header .container{justify-content:center!important}
+.main-nav{display:none!important}
+.nav-overlay{position:fixed;top:46px;left:0;right:0;background:rgba(0,0,0,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);flex-direction:column;padding:12px 20px;z-index:999;border-top:1px solid rgba(255,255,255,.08)}
+.nav-overlay a{color:rgba(255,255,255,.85);text-decoration:none;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.1em;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-overlay a:last-child{border:0}
+.nav-overlay.open{display:flex!important}
+/* Footer mobile: 3-col nav + brand row 1 + copyright center */
+.footer-grid{grid-template-columns:repeat(3,1fr);gap:16px}
+.footer-brand{grid-column:1/-1;margin-bottom:8px}
+}
+</style>
+<meta property="og:title" content="Verdant Curation — Curate Your Space With Greenery &amp; Style">
+<meta property="og:description" content="Curated design guides and plant pairings for the modern front porch. Discover inspiration for beautiful outdoor spaces.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://verdant-curation-clone.pages.dev/">
+<meta property="og:image" content="https://verdant-curation-clone.pages.dev/assets/images/hero/hero-garden.jpg">
+<meta property="og:site_name" content="Verdant Curation">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Verdant Curation — Curate Your Space With Greenery &amp; Style">
+<meta name="twitter:description" content="Curated design guides and plant pairings for the modern front porch.">
+<meta name="twitter:image" content="https://verdant-curation-clone.pages.dev/assets/images/hero/hero-garden.jpg">
+<link rel="canonical" href="https://verdant-curation-clone.pages.dev/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Verdant Curation",
+  "url": "https://verdant-curation-clone.pages.dev/",
+  "description": "Curated design guides and plant pairings for the modern front porch."
+}
+</script>
+</head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <a href="/" class="logo"><img src="/assets/images/verdant-curation-logo.png" alt="Verdant Curation" class="logo-img"></a>
-            <nav class="main-nav">
-                <a href="/" class="active">Home</a>
-                <a href="/articles/">Articles</a>
-                <a href="/collections/">Collections</a>
-                <a href="/about/">About</a>
-                <a href="/contact/">Contact</a>
-                <a href="/privacy/">Privacy</a>
-                <a href="/affiliate-disclosure/">Disclosure</a>
-            </nav>
+
+<!-- ================================================================
+     H01 — FIXED HEADER (reduced height, sticky)
+     ================================================================ -->
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="logo-link">
+      <img src="/assets/images/verdant-curation-logo-cropped.png" alt="Verdant Curation" style="height:32px;width:auto;display:block">
+      <span class="logo-text">VERDANT CURATION</span>
+    </a>
+    <!-- Hamburger button (mobile only) -->
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">☰</button>
+    <nav class="main-nav">
+      <a href="/" class="active">Home</a>
+      <a href="/articles/">Articles</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/affiliate-disclosure/">Disclosure</a>
+    </nav>
+    <!-- Mobile nav overlay -->
+    <div class="nav-overlay" id="navOverlay">
+      <a href="/">Home</a>
+      <a href="/articles/">Articles</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/affiliate-disclosure/">Disclosure</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     HERO BANNER
+     P01: Background image — 1600×700px, 16:7 ratio
+     A01-A04: About text
+     B01: Social + CTA buttons
+     ================================================================ -->
+<section class="hero-banner" id="heroCarousel">
+  
+  <!-- [轮换层] Slides: 只有背景图 -->
+  <div class="hero-slide active"><div class="hero-slide-bg" style="background-image:url('/assets/images/hero/hero-garden.jpg')"></div></div>
+  <div class="hero-slide"><div class="hero-slide-bg" style="background-image:url('/assets/images/hero/hero-patio.jpg')"></div></div>
+  <div class="hero-slide"><div class="hero-slide-bg" style="background-image:url('/assets/images/hero/hero-garden-path.jpg')"></div></div>
+  
+  <!-- [固定层] 遮罩、标语、logo块、圆点 — 全部静态不动 -->
+  <div class="hero-overlay"></div>
+  
+  <div class="container hero-content">
+    <div class="slogan-wrap">
+      <div><h1>CURATE YOUR SPACE<br>WITH GREENERY &amp; STYLE</h1></div>
+    </div>
+    <div class="about-block">
+      <div class="ab-logo">VC</div>
+      <div class="ab-text">
+        <p>We believe that beautiful living begins with thoughtful spaces. Small details transform how we feel at home. Verdant Curation is a place to discover inspiration, celebrate everyday beauty, and create spaces that feel warm, inviting, and uniquely your own.</p>
+      </div>
+      <div class="ab-actions">
+        <a href="#" class="ab-btn ab-ig">INSTAGRAM</a>
+        <a href="#" class="ab-btn ab-pf">PORTFOLIO</a>
+        <a href="#" class="ab-btn ab-pin">PINTEREST</a>
+      </div>
+    </div>
+    <a href="#" class="ab-story">BE INSPIRED BY OUR STORY →</a>
+  </div>
+  
+  <div class="carousel-dots">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+  </div>
+</section>
+
+<!-- ================================================================
+     MAIN CONTENT
+     ================================================================ -->
+<main>
+
+<!-- SECTION 1: LATEST FROM THE BLOG -->
+<section class="hp-section">
+  <div class="container">
+    <div class="hp-heading">
+      <div class="tag">Latest</div>
+      <h2>Latest From The Blog</h2>
+    </div>
+    <div class="blog-grid">
+      <a href="/articles/scented-herb-corner-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/scented-herb-corner-guide/hero-scene.png" alt="Scented Herb Corner">
+        <div class="card-body">
+          <div class="card-cat">Herb · Guides</div>
+          <h3>Scented Herb Corner Planter</h3>
+          <p>Lavender, rosemary, and mint — a fragrant herb corner that perfumes the air.</p>
         </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>Plant-led home<br><span>&amp; garden design</span></h1>
-            <p>Evidence-based guides on greenery, botanical interiors, and the art of living with plants.</p>
+      </a>
+      <a href="/articles/shade-fern-hosta-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/shade-fern-hosta-guide/hero-scene.png" alt="Shade Fern">
+        <div class="card-body">
+          <div class="card-cat">Shade · Guides</div>
+          <h3>Shade Fern &amp; Hosta Porch</h3>
+          <p>Ferns, hostas, and caladiums — a lush shade garden for porches that never see direct sun.</p>
         </div>
-    </section>
-
-    <main class="container">
-        <section class="featured">
-            <h2 class="section-title">Featured Article</h2>
-            <article class="card card--featured">
-                <div class="card__image">
-                    <a href="/articles/summer-porch-23-ideas-2026/"><img src="/assets/images/cards/featured-porch.jpg?v=2" alt="Lush front porch entrance with greenery, warm afternoon light, botanical home decor inspiration" loading="lazy"></a>
-                    <span class="card__badge-img">New</span>
-                </div>
-                <div class="card__content">
-                    <h3><a href="/articles/summer-porch-23-ideas-2026/">23 Summer Porch Ideas to Turn Your Entryway Into a Green Sanctuary</a></h3>
-                    <p class="card__meta">June 2026 · 23 ideas · 12 min read</p>
-                    <p class="card__excerpt">Summer is the season to make your front porch the most inviting part of your home. From sculptural monochromatic foliage walls that make a bold minimalist statement to romantic hanging basket galleries dripping with fuchsia and bacopa, these 23 curated ideas cover every porch style, sun exposure, and skill level. Whether you have a sprawling veranda or a tiny stoop, you'll find the perfect plant-led transformation waiting inside.</p>
-                    <a href="/articles/summer-porch-23-ideas-2026/" class="card__link">Read the full guide</a>
-                </div>
-            </article>
-        </section>
-
-        <section class="recent-articles">
-            <h2 class="section-title">Latest Guides</h2>
-            <div class="grid">
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/monochromatic-green-foliage-guide/"><img src="/assets/images/cards/mono-foliage.jpg?v=2" alt="Lush monochromatic green foliage arrangement with ferns and tropical leaves in ceramic pot" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">Design Guide</span>
-                        <h3><a href="/articles/monochromatic-green-foliage-guide/">Monochromatic Green Foliage Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Who says a planter needs flowers to be stunning? This complete design guide shows you how to build a lush, all-green foliage arrangement using ferns, calatheas, philodendrons, and tropical leaves — relying entirely on texture, leaf shape, and varying shades of green for visual drama. Perfect for shaded porches and modern minimalist homes where subtle sophistication speaks louder than a riot of color.</p>
-                        <a href="/articles/monochromatic-green-foliage-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/succulent-cacti-bowl-guide/"><img src="/assets/images/cards/succulent-bowl-v2.jpg?v=2" alt="Beautiful succulent and cacti arrangement in terracotta bowl, desert botanical decor" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">Design Guide</span>
-                        <h3><a href="/articles/succulent-cacti-bowl-guide/">Succulent &amp; Cacti Bowl — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Create a stunning low-maintenance centerpiece that thrives on neglect. This step-by-step guide walks you through selecting structural succulents, pairing hardy cacti with soft trailing varieties, and using sculptural stones to build a desert-inspired landscape in a single bowl. With the right drainage layers and soil mix, your succulent arrangement will look effortlessly beautiful for months with minimal watering — perfect for busy plant lovers.</p>
-                        <a href="/articles/succulent-cacti-bowl-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/scented-herb-corner-guide/"><img src="/assets/images/cards/herb-corner.jpg?v=3" alt="Fresh potted herbs on a sunny kitchen windowsill, basil and rosemary in ceramic pots" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">Design Guide</span>
-                        <h3><a href="/articles/scented-herb-corner-guide/">Scented Herb Corner Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Bring the farm-to-table experience to your windowsill with a beautifully designed herb corner planter that's as ornamental as it is useful. This guide covers the best culinary herbs for container growing — basil, rosemary, thyme, mint, and oregano — along with companion planting strategies, soil requirements, and harvesting tips that keep your plants productive all season. Fresh herbs within arm's reach, every single day.</p>
-                        <a href="/articles/scented-herb-corner-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/hanging-basket-wall-guide/"><img src="/assets/images/cards/hanging-baskets.jpg?v=2" alt="Lush hanging basket overflowing with fuchsia, lantana and purple petunias" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">Design Guide</span>
-                        <h3><a href="/articles/hanging-basket-wall-guide/">Hanging Basket Wall — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Turn a blank porch wall into a cascading tapestry of color with a hanging basket wall that saves floor space while delivering maximum visual impact. This complete design guide covers height staggering techniques, complementary bloom color palettes, plant selection for sun and shade, and daily care routines that keep your vertical garden thriving. From fuchsia focal points to calibrachoa color blocks, create a living curtain that transforms your porch into a lush retreat.</p>
-                        <a href="/articles/hanging-basket-wall-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/tropical-giant-leaves-guide/"><img src="/assets/images/cards/tropical-leaves.jpg?v=2" alt="Tropical giant leaves with Monstera deliciosa and Bamboo Palm flanking a front door" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/tropical-giant-leaves-guide/">Tropical Giant Leaves Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Transform your front porch into a resort-style tropical hideaway with giant leaves — Monstera deliciosa, Bamboo Palm, Alocasia, and Philodendron. This complete guide covers plant selection, three-tier layout, care routines, and design tips for creating a lush, layered look that brings vacation energy home. Monstera unfurls a new split leaf every few weeks, each one bigger than the last.</p>
-                        <a href="/articles/tropical-giant-leaves-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/single-statement-plant-guide/"><img src="/assets/images/cards/single-statement.jpg?v=2" alt="Single Fiddle-leaf fig statement plant on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/single-statement-plant-guide/">Single Statement Plant Front Porch — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 6 min read</p>
-                        <p class="card__excerpt">One plant, one pot — that is the whole idea. A single dramatic specimen standing alone on your porch makes a bolder statement than any crowded arrangement. This complete guide covers the best plants for the job — Fiddle-leaf fig, Giant aloe, Rosemary topiary, Phormium, Cordyline, and Boston fern — plus container sizing, care, and design tips that make one plant enough.</p>
-                        <a href="/articles/single-statement-plant-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/pollinator-garden-guide/"><img src="/assets/images/cards/pollinator-garden.jpg?v=2" alt="Colorful pollinator garden planter with butterfly milkweed and echinacea" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/pollinator-garden-guide/">Pollinator Native Garden Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Turn your front porch into a vibrant pollinator pit stop with butterfly milkweed, echinacea, bee balm, and black-eyed Susans. Attract monarchs, hummingbirds, and native bees while creating a stunning floral display that blooms from spring through fall.</p>
-                        <a href="/articles/pollinator-garden-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/ornamental-grass-guide/"><img src="/assets/images/cards/ornamental-grass.jpg?v=2" alt="Ornamental grasses in ceramic planters on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/ornamental-grass-guide/">Ornamental Grass Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Create a dynamic living sculpture that moves with the wind — Purple Fountain Grass, Blue Fescue, Carex 'Evergold', and Japanese Blood Grass bring motion, texture, and year-round interest to your front porch. Less water, less fertilizer, more beauty through all four seasons.</p>
-                        <a href="/articles/ornamental-grass-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/white-moon-garden-guide/"><img src="/assets/images/cards/white-moon-garden.jpg?v=2" alt="White moon garden planter glowing at dusk with white petunias and silver dichondra" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/white-moon-garden-guide/">White Moon Garden Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 6 min read</p>
-                        <p class="card__excerpt">Transform your front porch into a luminous moonlit sanctuary with a white-themed planter that glows at dusk. Four carefully chosen plants — White Petunia, Silver Dichondra, Angelonia, and fragrant Star Jasmine — create a living arrangement that catches the light and fills the evening air with scent.</p>
-                        <a href="/articles/white-moon-garden-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/cottage-garden-overflow-guide/"><img src="/assets/images/cards/cottage-garden.jpg?v=2" alt="Cottage garden flowers overflowing from a front porch planter" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/cottage-garden-overflow-guide/">Cottage Garden Overflow Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Turn your front porch into a romantic English cottage garden with a planter packed with flowers that tumble over each other — Supertunia, snapdragons, lobelia, dusty miller, bacopa, and calibrachoa. Complete design guide with plant pairings, layout tips, and daily care that keeps color spilling everywhere from spring through first frost.</p>
-                        <a href="/articles/cottage-garden-overflow-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/edible-companion-planting-guide/"><img src="/assets/images/cards/edible-companion.jpg?v=3" alt="Tomato and basil companion planter on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/edible-companion-planting-guide/">Edible Companion Planting Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Grow your own food right on your front porch. This guide shows you how to pair tomatoes with basil, marigolds, and other companion plants in a single planter that's as beautiful as it is productive. Covers companion planting science, container selection, step-by-step planting, and daily care.</p>
-                        <a href="/articles/edible-companion-planting-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/formal-symmetrical-urns-guide/"><img src="/assets/images/cards/formal-urns.jpg?v=2" alt="Matching stone urns with boxwood topiary flanking a front door" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/formal-symmetrical-urns-guide/">Formal Symmetrical Urns Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Create a timeless entrance with matching urns on either side of your front door. This design guide covers clipped boxwood, standard topiary, trailing ivy, and the principles of symmetry and proportion that make a formal front porch feel composed and elegant.</p>
-                        <a href="/articles/formal-symmetrical-urns-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/boho-macrame-tier-guide/"><img src="/assets/images/cards/boho-macrame.jpg?v=2" alt="Boho macrame hanging planters on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/boho-macrame-tier-guide/">Boho Macrame Tier Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Create a bohemian plant display with layered macrame hangers and trailing plants. This guide covers macrame knot styles, best trailing plants (pothos, string of pearls, spider plant), tier arrangement principles, and care tips for a show-stopping boho porch.</p>
-                        <a href="/articles/boho-macrame-tier-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/shade-fern-hosta-guide/"><img src="/assets/images/cards/shade-fern.jpg?v=2" alt="Shade ferns and hostas in containers on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/shade-fern-hosta-guide/">Shade Fern &amp; Hosta Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Transform a shady porch into a lush woodland retreat with ferns and hostas. Covers Boston fern, Maidenhair fern, Japanese Painted fern, mini and variegated hostas, plus shade companions like caladium and heuchera. Step-by-step planting, care, and three design variations.</p>
-                        <a href="/articles/shade-fern-hosta-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/rustic-farmhouse-basket-guide/"><img src="/assets/images/cards/rustic-farmhouse.jpg?v=3" alt="Rustic farmhouse basket planter on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/rustic-farmhouse-basket-guide/">Rustic Farmhouse Basket Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 8 min read</p>
-                        <p class="card__excerpt">Create a charming farmhouse entryway with a woven basket planter filled with geraniums, lavender, and ivy. Covers basket styles, best plants, step-by-step planting, and farmhouse styling tips.</p>
-                        <a href="/articles/rustic-farmhouse-basket-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/modern-minimalist-sculpture-guide/"><img src="/assets/images/cards/modern-minimalist.jpg?v=3" alt="Modern minimalist sculpture planter on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/modern-minimalist-sculpture-guide/">Modern Minimalist Sculpture Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Less is more. This guide shows you how to create a sculptural minimalist planter with agave, yucca, and architectural plants in geometric containers. Clean, bold, and endlessly elegant.</p>
-                        <a href="/articles/modern-minimalist-sculpture-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/fragrant-jasmine-night-bloomers-guide/"><img src="/assets/images/cards/fragrant-jasmine.jpg?v=3" alt="Fragrant jasmine planter on a front porch at dusk" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/fragrant-jasmine-night-bloomers-guide/">Fragrant Jasmine &amp; Night Bloomers Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Transform your porch into an evening sanctuary with fragrant jasmine, moonflower, and night-blooming plants. Covers vine trellis setup, fragrance timing, and romantic evening garden design.</p>
-                        <a href="/articles/fragrant-jasmine-night-bloomers-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/repurposed-vintage-containers-guide/"><img src="/assets/images/cards/repurposed-vintage.jpg?v=3" alt="Repurposed vintage container planter on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/repurposed-vintage-containers-guide/">Repurposed Vintage Containers Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Turn everyday vintage finds into stunning front porch planters. This guide covers creative container ideas from teapots to bathtubs, with drainage hacks and styling tips for charming vintage garden decor.</p>
-                        <a href="/articles/repurposed-vintage-containers-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/drought-tolerant-native-guide/"><img src="/assets/images/cards/drought-native.jpg?v=3" alt="Drought-tolerant native planters on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/drought-tolerant-native-guide/">Drought-Tolerant Native Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Create a water-wise porch garden that thrives on neglect. Covers the best drought-tolerant plants including lavender, salvia, yarrow, sedum, and echinacea, with container selection and step-by-step planting for sunny porches.</p>
-                        <a href="/articles/drought-tolerant-native-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/color-block-planter-guide/"><img src="/assets/images/cards/color-block.jpg?v=3" alt="Color-block planter on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/color-block-planter-guide/">Color-Block Planter Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Make a bold statement with color-block planting. This guide covers monochrome schemes, complementary color pairs, tri-color combos, and the best plants to create stunning color-blocked porch planters.</p>
-                        <a href="/articles/color-block-planter-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/tiered-plant-stand-garden-guide/"><img src="/assets/images/cards/tiered-stand.jpg?v=3" alt="Tiered plant stand garden on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/tiered-plant-stand-garden-guide/">Tiered Plant Stand Garden Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Maximize your porch space with a tiered plant stand. This guide covers stand styles, best plants for each tier, arrangement principles, and three design variations to create a lush vertical garden.</p>
-                        <a href="/articles/tiered-plant-stand-garden-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-                <article class="card">
-                    <div class="card__image">
-                        <a href="/articles/tropical-monstera-palm-guide/"><img src="/assets/images/cards/tropical-monstera.jpg?v=3" alt="Tropical monstera and palm on a front porch" loading="lazy"></a>
-                    </div>
-                    <div class="card__content">
-                        <span class="card__tag">New · Design Guide</span>
-                        <h3><a href="/articles/tropical-monstera-palm-guide/">Tropical Monstera &amp; Palm Front Porch Planter — Complete Design Guide</a></h3>
-                        <p class="card__meta">June 2026 · 7 min read</p>
-                        <p class="card__excerpt">Transform your porch into a tropical paradise with Monstera deliciosa, Areca palm, and Bird of Paradise. Complete guide with container selection, care, and three design variations for the ultimate resort-style entrance.</p>
-                        <a href="/articles/tropical-monstera-palm-guide/" class="card__link">Read</a>
-                    </div>
-                </article>
-
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col footer-brand">
-                    <img src="/assets/images/verdant-curation-logo.png" alt="Verdant Curation" class="footer-logo">
-                    <p>Plant-led home &amp; garden design. Evidence-based guides on greenery, botanical interiors, and living with plants.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <nav class="footer-nav">
-                        <a href="/">Home</a>
-                        <a href="/articles/">Articles</a>
-                        <a href="/collections/">Collections</a>
-                        <a href="/about/">About</a>
-                        <a href="/contact/">Contact</a>
-                    </nav>
-                </div>
-                <div class="footer-col">
-                    <h4>More</h4>
-                    <nav class="footer-nav">
-                        <a href="/privacy/">Privacy Policy</a>
-                        <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
-                        <a href="https://pinterest.com/verdantcuration" target="_blank" rel="noopener">Pinterest</a>
-                    </nav>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p class="footer-disclosure">Verdant Curation is a participant in the Amazon Services LLC Associates Program, an affiliate advertising program designed to provide a means for sites to earn advertising fees by advertising and linking to Amazon.com. As an Amazon Associate we earn from qualifying purchases.</p>
-                <p>All images on this site are AI-generated unless otherwise noted.</p>
-                <p>&copy; 2026 Verdant Curation. All rights reserved.</p>
-            </div>
+      </a>
+      <a href="/articles/boho-macrame-tier-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/boho-macrame-tier-guide/hero-scene.png" alt="Boho Macrame">
+        <div class="card-body">
+          <div class="card-cat">Boho · Guides</div>
+          <h3>Boho Macrame Tier</h3>
+          <p>Macrame hangers and tiered stands — a bohemian porch garden that feels collected and creative.</p>
         </div>
-    </footer>
+      </a>
+      <a href="/articles/formal-symmetrical-urns-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/formal-symmetrical-urns-guide/hero-scene.png" alt="Formal Urns">
+        <div class="card-body">
+          <div class="card-cat">Formal · Guides</div>
+          <h3>Formal Symmetrical Urns</h3>
+          <p>Matching urns and clipped topiaries — classical elegance for your entryway.</p>
+        </div>
+      </a>
+      <a href="/articles/edible-companion-planting-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/edible-companion-planting-guide/hero-scene.png" alt="Edible Garden">
+        <div class="card-body">
+          <div class="card-cat">Edible · Guides</div>
+          <h3>Edible Companion Planting</h3>
+          <p>Herbs and vegetables in beautiful containers — a porch garden that feeds the kitchen.</p>
+        </div>
+      </a>
+      <a href="/articles/cottage-garden-overflow-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/cottage-garden-overflow-guide/hero-scene.jpg" alt="Cottage Garden">
+        <div class="card-body">
+          <div class="card-cat">Cottage · Guides</div>
+          <h3>Cottage Garden Overflow</h3>
+          <p>Lavender, roses, and foxglove — abundant cottage blooms for your front porch.</p>
+        </div>
+      </a>
+      <a href="/articles/white-moon-garden-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/white-moon-garden-guide/hero-scene.jpg" alt="White Moon Garden">
+        <div class="card-body">
+          <div class="card-cat">Moon Garden · Guides</div>
+          <h3>White Moon Garden Porch</h3>
+          <p>Pale flowers and silver foliage that glow in twilight — a luminous evening retreat.</p>
+        </div>
+      </a>
+      <a href="/articles/ornamental-grass-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/ornamental-grass-guide/hero-scene.jpg" alt="Ornamental Grass">
+        <div class="card-body">
+          <div class="card-cat">General · Guides</div>
+          <h3>Ornamental Grass Porch</h3>
+          <p>Swaying plumes and soft texture — grasses bring movement to your doorstep.</p>
+        </div>
+      </a>
+    </div></div>
+</section>
+
+<!-- ============================================================
+     SECTION 2: EDITOR'S PICKS
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="hp-heading">
+      <h2>Editor's Picks <span style="color:var(--terracotta)">&#9733;</span></h2>
+    </div>
+    <div class="ep-grid">
+      <a href="/articles/formal-symmetrical-urns-guide/" class="ep-card">
+        <img class="ep-img" src="/assets/images/articles/formal-symmetrical-urns-guide/hero-scene.png" alt="Formal Symmetrical Urns">
+        <div class="ep-body">
+          <span class="ep-badge">&#9733; Editor's Pick</span>
+          <div class="ep-cat">European Classic</div>
+          <h3>Formal Symmetrical Urns</h3>
+          <p>Matching urns and clipped topiaries — classical elegance for your entryway.</p>
+        </div>
+      </a>
+      <a href="/articles/tropical-giant-leaves-guide/" class="ep-card">
+        <img class="ep-img" src="/assets/images/articles/tropical-giant-leaves-guide/hero-scene.jpg" alt="Tropical Giant Leaves">
+        <div class="ep-body">
+          <span class="ep-badge">&#9733; Editor's Pick</span>
+          <div class="ep-cat">Tropical</div>
+          <h3>Tropical Giant Leaves</h3>
+          <p>Oversized foliage creates a dramatic, resort-worthy entry in any climate.</p>
+        </div>
+      </a>
+    </div>
+    <div class="ep-grid" style="margin-top:24px">
+      <a href="/articles/white-moon-garden-guide/" class="ep-card">
+        <img class="ep-img" src="/assets/images/articles/white-moon-garden-guide/hero-scene.jpg" alt="White Moon Garden">
+        <div class="ep-body">
+          <span class="ep-badge">&#9733; Editor's Pick</span>
+          <div class="ep-cat">Moon Garden</div>
+          <h3>White Moon Garden Porch</h3>
+          <p>Pale flowers and silver foliage that glow in twilight — a luminous evening retreat.</p>
+        </div>
+      </a>
+      <a href="/articles/hanging-basket-wall-guide/" class="ep-card">
+        <img class="ep-img" src="/assets/images/articles/hanging-basket-wall-guide/hero-scene.jpg" alt="Hanging Basket Wall">
+        <div class="ep-body">
+          <span class="ep-badge">&#9733; Editor's Pick</span>
+          <div class="ep-cat">DIY &amp; Crafts</div>
+          <h3>Hanging Basket Wall</h3>
+          <p>A vertical garden of hanging baskets — perfect for small porches with big style.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<!--      SECTION 3: 🌿 ORGANIC MODERN
+     H04: Section heading
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="theme-header">
+      <span class="theme-icon">🌿</span>
+      <h2>Organic Modern</h2>
+    </div>
+    <div class="theme-grid">
+      <a href="/articles/single-statement-plant-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/single-statement-plant-guide/hero-scene.jpg" alt="Single Statement Plant">
+        <div class="card-body">
+          <div class="card-cat">Minimalist · Guides</div>
+          <h3>Single Statement Plant</h3>
+          <p>One plant, maximum impact — the minimalist approach to front porch design.</p>
+        </div>
+      </a>
+      <a href="/articles/succulent-cacti-bowl-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/succulent-cacti-bowl-guide/hero-scene.jpg" alt="Succulent Cacti Bowl">
+        <div class="card-body">
+          <div class="card-cat">Succulent · Guides</div>
+          <h3>Succulent Cacti Bowl</h3>
+          <p>Low-maintenance desert beauty for your front porch. Perfect for beginners.</p>
+        </div>
+      </a>
+      <a href="/articles/scented-herb-corner-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/scented-herb-corner-guide/hero-scene.png" alt="Scented Herb Corner">
+        <div class="card-body">
+          <div class="card-cat">Herb · Guides</div>
+          <h3>Scented Herb Corner</h3>
+          <p>Lavender, rosemary, and mint — a fragrant herb corner that perfumes the air.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+<!--      SECTION 4: 🏛️ EUROPEAN CLASSIC
+     H05: Section heading
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="theme-header">
+      <span class="theme-icon">🏛️</span>
+      <h2>European Classic</h2>
+    </div>
+    <div class="theme-grid">
+      <a href="/articles/formal-symmetrical-urns-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/formal-symmetrical-urns-guide/hero-scene.png" alt="Formal Symmetrical Urns">
+        <div class="card-body">
+          <div class="card-cat">Formal · Guides</div>
+          <h3>Formal Symmetrical Urns</h3>
+          <p>Matching urns and clipped topiaries — classical elegance for your entryway.</p>
+        </div>
+      </a>
+      <a href="/articles/cottage-garden-overflow-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/cottage-garden-overflow-guide/hero-scene.jpg" alt="Cottage Garden Overflow">
+        <div class="card-body">
+          <div class="card-cat">Cottage · Guides</div>
+          <h3>Cottage Garden Overflow</h3>
+          <p>Lavender, roses, and foxglove — abundant cottage blooms for your front porch.</p>
+        </div>
+      </a>
+      <a href="/articles/white-moon-garden-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/white-moon-garden-guide/hero-scene.jpg" alt="White Moon Garden Porch">
+        <div class="card-body">
+          <div class="card-cat">Moon Garden · Guides</div>
+          <h3>White Moon Garden Porch</h3>
+          <p>Pale flowers and silver foliage that glow in twilight — a luminous evening retreat.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+<!--      SECTION 5: 🌊 MEDITERRANEAN
+     H06: Section heading
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="theme-header">
+      <span class="theme-icon">🌊</span>
+      <h2>Mediterranean</h2>
+    </div>
+    <div class="theme-grid">
+      <a href="/articles/ornamental-grass-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/ornamental-grass-guide/hero-scene.jpg" alt="Ornamental Grass Porch">
+        <div class="card-body">
+          <div class="card-cat">General · Guides</div>
+          <h3>Ornamental Grass Porch</h3>
+          <p>Swaying plumes and soft texture — grasses bring movement to your doorstep.</p>
+        </div>
+      </a>
+      <a href="/articles/edible-companion-planting-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/edible-companion-planting-guide/hero-scene.png" alt="Edible Companion Planting">
+        <div class="card-body">
+          <div class="card-cat">Edible · Guides</div>
+          <h3>Edible Companion Planting</h3>
+          <p>Herbs and vegetables in beautiful containers — a porch garden that feeds the kitchen.</p>
+        </div>
+      </a>
+      <a href="/articles/pollinator-garden-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/pollinator-garden-guide/hero-scene.jpg" alt="Pollinator Native Garden">
+        <div class="card-body">
+          <div class="card-cat">Pollinator · Guides</div>
+          <h3>Pollinator Native Garden</h3>
+          <p>Native blooms that bring bees, butterflies, and birds to your front porch.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+<!--      SECTION 6: 🏡 AMERICAN RUSTIC
+     H07: Section heading
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="theme-header">
+      <span class="theme-icon">🏡</span>
+      <h2>American Rustic</h2>
+    </div>
+    <div class="theme-grid">
+      <a href="/articles/hanging-basket-wall-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/hanging-basket-wall-guide/hero-scene.jpg" alt="Hanging Basket Wall">
+        <div class="card-body">
+          <div class="card-cat">DIY · Guides</div>
+          <h3>Hanging Basket Wall</h3>
+          <p>A vertical garden of hanging baskets — perfect for small porches with big style.</p>
+        </div>
+      </a>
+      <a href="/articles/boho-macrame-tier-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/boho-macrame-tier-guide/hero-scene.png" alt="Boho Macrame Tier">
+        <div class="card-body">
+          <div class="card-cat">Boho · Guides</div>
+          <h3>Boho Macrame Tier</h3>
+          <p>Macrame hangers and tiered stands — a bohemian porch garden that feels collected.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+<!--      SECTION 7: 🌴 TROPICAL
+     H08: Section heading
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="theme-header">
+      <span class="theme-icon">🌴</span>
+      <h2>Tropical</h2>
+    </div>
+    <div class="theme-grid">
+      <a href="/articles/tropical-giant-leaves-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/tropical-giant-leaves-guide/hero-scene.jpg" alt="Tropical Giant Leaves">
+        <div class="card-body">
+          <div class="card-cat">Tropical · Guides</div>
+          <h3>Tropical Giant Leaves</h3>
+          <p>Oversized foliage creates a dramatic, resort-worthy entry in any climate.</p>
+        </div>
+      </a>
+      <a href="/articles/shade-fern-hosta-guide/" class="article-card">
+        <img class="card-img" src="/assets/images/articles/shade-fern-hosta-guide/hero-scene.png" alt="Shade Fern &amp; Hosta Porch">
+        <div class="card-body">
+          <div class="card-cat">Shade · Guides</div>
+          <h3>Shade Fern &amp; Hosta Porch</h3>
+          <p>Ferns, hostas, and caladiums — a lush shade garden for porches without direct sun.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+
+<!-- ============================================================
+     SECTION 9: VIEW ALL ARTICLES
+     B01: Button CTA
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container">
+    <div class="cta-row"><br>
+      <a href="/articles/">View All Articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10: SUBSCRIBE
+     H10: Section heading
+     B02: Subscribe form
+     ============================================================ -->
+<section class="hp-section">
+  <div class="container subscribe-wrap">
+    <h2>Don't Miss Out — Subscribe for the Latest Guides</h2>
+    <p>Get new design guides, plant pairing tips, and seasonal inspiration delivered to your inbox.</p>
+    <form class="sub-form">
+      <input type="email" placeholder="Email Address *" required>
+      <button type="submit">JOIN US</button>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img src="/assets/images/verdant-curation-logo-cropped.png" alt="Verdant Curation" class="footer-logo">
+<p>Curated design guides and plant pairings for the modern front porch.</p>
+</div>
+<div class="footer-col">
+<h4>Navigate</h4>
+<a href="/">Home</a>
+<a href="/articles/">Articles</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</div>
+<div class="footer-col">
+<h4>Legal</h4>
+<a href="/privacy/">Privacy Policy</a>
+<a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+<a href="/terms/">Terms of Service</a>
+</div>
+<div class="footer-col">
+<h4>Follow</h4>
+</div>
+</div>
+<div class="footer-copyright">
+<p>&copy; 2026 Verdant Curation. All rights reserved.</p>
+</div>
+</div>
+</footer>
+
+<script>
+// Hamburger menu toggle
+document.addEventListener('DOMContentLoaded',function(){
+  var btn=document.getElementById('hamburgerBtn');
+  var overlay=document.getElementById('navOverlay');
+  if(!btn||!overlay)return;
+  btn.addEventListener('click',function(e){
+    e.stopPropagation();
+    var open=overlay.classList.toggle('open');
+    btn.textContent=open?'✕':'☰';
+  });
+  document.addEventListener('click',function(e){
+    if(!overlay.classList.contains('open'))return;
+    if(!overlay.contains(e.target)&&e.target!==btn){
+      overlay.classList.remove('open');
+      btn.textContent='☰';
+    }
+  });
+  // Hero carousel (3-slide crossfade)
+  (function(){
+    var slides=document.querySelectorAll('.hero-slide');
+    var dots=document.querySelectorAll('.carousel-dots .dot');
+    if(!slides.length||!dots.length)return;
+    var current=0, transitioning=false;
+    function goTo(n){
+      if(n===current||transitioning)return;
+      transitioning=true;
+      var old=slides[current], next=slides[n];
+      // Old slide: fade out (opacity 1→0 with transition)
+      old.classList.remove('active');
+      // New slide: fade in on top (opacity 0→1 with transition)
+      next.classList.add('active');
+      // Update dots
+      dots[current].classList.remove('active');
+      dots[n].classList.add('active');
+      current=n;
+      setTimeout(function(){transitioning=false;},1000);
+    }
+    dots.forEach(function(dot){
+      dot.addEventListener('click',function(){
+        goTo(parseInt(this.getAttribute('data-slide')));
+        clearInterval(interval);
+        interval=setInterval(autoAdvance,5000);
+      });
+    });
+    function autoAdvance(){
+      if(transitioning)return;
+      goTo((current+1)%slides.length);
+    }
+    interval=setInterval(autoAdvance,5000);
+  })();
+});
+</script>
+
 </body>
 </html>
